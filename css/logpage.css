@@ -1,0 +1,106 @@
+.gridblock {
+    margin: 180px 0;
+    display: flex;
+    gap: 100px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.gridblock .texts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 500px;
+    gap: 30px;
+}
+
+
+.gridblock .texts h1 {
+    font-size: 45px;
+}
+
+.gridblock .texts p {
+    font-size: 30px;
+}
+
+.biglogo {
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+
+.gridblock form {
+    padding: 30px 20px;
+    border: 2px solid #00000D;
+    border-radius: 17px;
+    font-size: 16px;
+    display: flex;
+    width: 383px;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    flex-shrink: 0;
+}
+
+.gridblock .inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.gridblock input {
+    padding: 15px;
+    border: 1px solid #00000D;
+    border-radius: 8px;
+    transition: .3s ease;
+    width: calc(100% - 30px);
+    font-family: 'Anonymous Pro';
+    font-size: 16px;
+}
+
+.gridblock input:focus {
+    border: 1px solid #FCD535;
+}
+
+.subbutton {
+    width: 100%;
+}
+
+#paybutton {
+    width: 100%;
+    background: #FCD535;
+    border-radius: 8px;
+    padding: 14px 0;
+    font-size: 16px;
+    border: 3px solid #fcd535;
+    box-shadow: 0 0 20px -12px rgb(0 0 0 / 0%) inset;
+    transition: .4s ease-in-out;
+}
+
+#paybutton:hover {
+    background: #fcd53517;
+    border-radius: 8px;
+    box-shadow: 0 0 20px -12px #0000006b inset;
+}
+
+.pageinput a.active {
+    background: #FCD535;
+    color: black;
+}
+
+.pageinput a {
+    border-radius: 8px;
+    padding: 10px 24px;
+    display: block;
+    color: white;
+}
+
+.pageinput {
+    display: flex;
+    gap: 20px;
+    padding: 3px;
+    background: #00000D;
+    border-radius: 8px;
+}
+

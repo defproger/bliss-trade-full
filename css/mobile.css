@@ -1,0 +1,365 @@
+@media screen and (max-width: 900px) {
+    .container {
+        width: 345px;
+        padding: 0;
+    }
+
+    .maintext {
+        font-size: 27px;
+        font-weight: 400 !important;
+
+    }
+
+    .secondtext {
+        font-size: 22px;
+    }
+
+    header {
+        margin: 35px auto !important;
+    }
+
+    #logo {
+        z-index: 100;
+
+    }
+
+    header #logo svg {
+        height: 20px;
+        width: auto;
+    }
+
+    .header-buttons {
+        display: none;
+    }
+
+    #burger {
+        display: block;
+        position: relative;
+        width: 22px;
+        height: 22px;
+    }
+
+    #burger div {
+        position: absolute;
+        border: 1.5px solid #14181F;
+        border-radius: 1px;
+        width: 6px;
+        height: 6px;
+        transition: .6s;
+        z-index: 100;
+    }
+
+    #burger div:nth-child(1) {
+        top: 0;
+        left: 0;
+        transition: 1s ease;
+    }
+
+    #burger div:nth-child(2) {
+        top: 0;
+        right: 0;
+    }
+
+    #burger div:nth-child(3) {
+        bottom: 0;
+        left: 0;
+    }
+
+    #burger div:nth-child(4) {
+        bottom: 0;
+        right: 0;
+    }
+
+    #burger.active div:nth-child(1) {
+        transform: rotate(-27deg) translate(-313px, -33vh);
+        width: 132px;
+        height: 132px;
+    }
+
+    #burger.active div:nth-child(2) {
+        transform: rotate(0deg) translate(-3px, 5px);
+    }
+
+    #burger.active div:nth-child(3) {
+        bottom: 0;
+        left: 0;
+        transform: translate(-44vw, 98vh) rotate(68deg);
+        width: 100px;
+        height: 100px;
+        transition: .7s ease-in-out;
+    }
+
+    body {
+        transition: .4s ease;
+    }
+
+    body.active {
+        overflow: hidden;
+        background: #FCD535;
+    }
+
+    .helpbutton {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    #navmenu {
+        position: fixed;
+        height: 100vh;
+        z-index: 99;
+        width: 100%;
+        background: #FCD535;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: .5s;
+    }
+
+    #navmenu.active {
+        display: flex;
+    }
+
+    /*main*/
+    .main_mobilebg {
+        display: block;
+        margin: auto;
+        margin-bottom: 50px;
+    }
+
+    .main_background {
+        display: none;
+    }
+
+    .main_texts {
+        max-width: 300px;
+    }
+
+    #mainscreen {
+        margin-top: 50px !important;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #mainscreen h1 {
+        font-size: 30px;
+    }
+
+    /*counterscreen*/
+    #countscreen {
+        overflow: hidden;
+    }
+
+    #countscreen .container {
+        display: flex;
+        flex-direction: column
+    }
+
+    .counter_photo_block img {
+        max-height: 220px;
+        position: absolute;
+        right: -90px;
+    }
+
+    .counter_photo_block {
+        height: 220px;
+    }
+
+    .count_logo {
+        top: 640px;
+        left: -111px;
+        height: 0;
+    }
+
+    .counterblock h1 {
+        font-size: 50px;
+    }
+
+    /*works*/
+    .works_block {
+        margin: 70px 0;
+        gap: 30px;
+    }
+
+    .w_block_texts {
+        width: auto;
+        align-items: start;
+    }
+
+
+    .w_block_texts h1 {
+        font-size: 54px;
+    }
+
+    .w_block_texts p {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+
+    .work_texts h1 {
+        margin-bottom: 30px;
+    }
+
+    .work_texts p {
+        font-size: 19px;
+    }
+
+    .works_block:nth-child(2) .works_line img {
+        width: 36px;
+        height: 138px;
+    }
+
+    .works_block:nth-child(2) .works_line {
+        top: -50px;
+        right: 150px;
+    }
+
+    .works_block:nth-child(3) .works_line img {
+        width: 125px;
+        height: 94px;
+    }
+
+    .works_block:nth-child(3) .works_line {
+        top: -120px;
+        right: 130px;
+    }
+
+    .works_block:nth-child(4) .works_line img {
+        width: 133px;
+        height: 103px;
+    }
+
+    .works_block:nth-child(4) .works_line {
+        top: -130px;
+        right: 70px;
+    }
+
+    .works_block:nth-child(5) .works_line img {
+        width: 87px;
+        height: 169px;
+    }
+
+    .works_block:nth-child(5) .works_line {
+        top: -190px;
+        right: 145px;
+    }
+
+    .works_block:not(:nth-child(2)) {
+        align-items: flex-start;
+    }
+
+    /*traders*/
+    .trade_wrapper {
+        gap: 0;
+        flex-wrap: nowrap;
+        justify-content: start;
+    }
+
+    #besttraders {
+        margin-bottom: 635px;
+        margin-top: 0 !important;
+    }
+
+    .sliderblock {
+        text-align: center;
+    }
+
+    .swiper {
+        margin-top: 40px;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        padding-bottom: 70px;
+    }
+
+    .swiper-pagination span {
+        width: 15px;
+        height: 15px;
+    }
+
+    /*comments*/
+    #comments {
+        margin-bottom: 500px;
+    }
+
+    .comment_block {
+        padding: 40px 15px 20px;
+    }
+
+    /*accodrion*/
+    .acc_arrea_answer {
+        padding: 17px 15px;
+    }
+
+    .answer_title {
+        margin-left: 45px;
+    }
+
+    .answer_title svg {
+        width: 30px;
+        height: 30px;
+        top: -5px;
+        left: -45px;
+    }
+
+    .acc_answer_arrea {
+        margin-top: 30px;
+        margin-bottom: 17px;
+        font-size: 12px;
+    }
+
+    #questions p {
+        margin-top: 30px;
+        margin-bottom: 70px;
+        font-size: 16px;
+    }
+
+    #questions h1 {
+        font-size: 45px;
+    }
+
+    #questions {
+        margin-top: 600px;
+    }
+
+
+    /*log/reg pages*/
+    .gridblock {
+        margin: 100px 0 180px;
+        gap: 50px;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column-reverse;
+    }
+
+    .gridblock form {
+        width: 280px;
+        text-align: center;
+    }
+
+    .pageinput a {
+        padding: 10px 16px;
+    }
+
+    .pageinput.secondtext {
+        font-size: 16px;
+    }
+
+    .gridblock .texts {
+        align-items: center;
+        max-width: 500px;
+        gap: 20px;
+    }
+
+    .gridblock .texts h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .gridblock .texts p {
+        font-size: 18px;
+        text-align: center;
+    }
+}

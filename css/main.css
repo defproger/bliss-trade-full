@@ -1,0 +1,512 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Anonymous Pro';
+    /*line-height: 200%;*/
+    font-style: normal;
+    font-weight: 400 !important;
+    color: black;
+}
+
+a {
+    color: black;
+}
+
+button {
+    cursor: pointer;
+}
+
+.maintext {
+    font-size: 55px;
+    font-weight: 400 !important;
+
+}
+
+.secondtext {
+    font-size: 22px;
+}
+
+.headertext {
+    font-size: 28px;
+}
+
+/*background*/
+#mainscreen {
+    display: flex;
+    gap: 100px;
+}
+
+.main_background {
+    margin-top: 76px;
+}
+
+.main_background img {
+    max-width: 830px;
+    height: auto;
+    width: 100%;
+}
+
+/*site*/
+.container {
+    width: 1200px;
+    padding: 0 40px;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px auto !important;
+}
+
+#burger {
+    display: none;
+
+}
+
+#logo {
+    display: block;
+}
+
+#logo svg {
+    height: 50px;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.helpbutton {
+    background: #FCD535;
+    border-radius: 5px;
+    padding: 10px 30px;
+    border: 3px solid #fcd535;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 0 20px -12px rgba(0, 0, 0, 0) inset;
+    transition: .4s ease-in-out;
+}
+
+.helpbutton:hover {
+    background: #fcd53517;
+    border-radius: 8px;
+    box-shadow: 0 0 20px -12px #0000006b inset;
+}
+
+.helpbutton svg {
+    transform: translate(0, 0);
+    transition: .6s ease;
+}
+
+.helpbutton:hover svg {
+    transform: translate(15px, 0);
+}
+
+.link {
+    margin-top: 13px;
+    display: block;
+}
+
+.link:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: black;
+    margin: auto;
+    margin-top: 10px;
+    transition: all .5s ease;
+}
+
+.link:hover:after {
+    width: 100%;
+}
+
+
+.language_buttons {
+    display: flex;
+    cursor: pointer;
+}
+
+.language_buttons a::after {
+    content: '|';
+    margin: 0 8px;
+}
+
+.language_buttons a:last-child::after {
+    display: none;
+}
+
+.language_buttons a.active {
+    font-weight: bold;
+}
+
+/*mainscreen*/
+#mainscreen {
+    margin-top: 100px !important;
+}
+
+#mainscreen h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.main_texts {
+    max-width: 40%;
+}
+
+#mainscreen .helpbutton {
+    margin-top: 40px;
+}
+
+.main_mobilebg {
+    display: none;
+}
+
+/*countscreen*/
+#countscreen {
+    width: 100%;
+    background: #FCD535;
+    margin-top: 100px;
+    padding: 70px 0 50px;
+}
+
+#countscreen .container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+            "h1 h1 h1"
+            "emotion clients time"
+            "text photo photo";
+    grid-row-gap: 65px;
+    justify-items: center;
+    align-items: center;
+}
+
+.count_logo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.counter_photo_block {
+    grid-area: photo;
+}
+
+.counter_photo_block img {
+    max-height: 470px;
+}
+
+#countscreen h1 {
+    text-align: center;
+    grid-area: h1;
+}
+
+.counterblock {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.counterblock:nth-child(2) {
+    grid-area: emotion;
+}
+
+.counterblock:nth-child(3) {
+    grid-area: clients;
+}
+
+.counterblock:nth-child(4) {
+    grid-area: time;
+}
+
+.counter_texts {
+    grid-area: text;
+}
+
+.counter_block_texts {
+    margin-left: 40px;
+}
+
+.counter_block_texts h1 {
+    margin-bottom: 10px;
+}
+
+.counter_texts p {
+    max-width: 440px;
+    /*text-align: justify;*/
+}
+
+.counter_texts .helpbutton {
+    background: white;
+    margin-top: 50px;
+}
+
+/*worksscreen*/
+
+#worksscreen {
+    margin-top: 100px !important;
+}
+
+.work_texts {
+    width: 100%;
+    max-width: 550px;
+}
+
+.work_texts h1 {
+    margin-bottom: 70px;
+}
+
+.works_block {
+    margin: 150px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    position: relative;
+}
+
+.works_line {
+    position: absolute;
+}
+
+
+.works_line img {
+    height: auto;
+    border-radius: 0;
+}
+
+.works_block:nth-child(2) .works_line img {
+    width: 180px;
+    height: 80px;
+}
+
+.works_block:nth-child(2) .works_line {
+    top: -120px;
+    right: 420px;
+}
+
+.works_block:nth-child(3) .works_line img {
+    width: 370px;
+    height: 131px;
+}
+
+.works_block:nth-child(3) .works_line {
+    top: -175px;
+    right: 490px;
+}
+
+.works_block:nth-child(4) .works_line img {
+    width: 380px;
+    height: 225px;
+}
+
+.works_block:nth-child(4) .works_line {
+    top: -260px;
+    right: 330px;
+}
+
+.works_block:nth-child(5) .works_line img {
+    width: 325px;
+    height: 141px;
+}
+
+.works_block:nth-child(5) .works_line {
+    top: -185px;
+    right: 475px;
+}
+
+.works_block:nth-child(2n) {
+    flex-direction: row;
+}
+
+.works_block img {
+    height: 340px;
+}
+
+.w_block_texts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.w_block_texts p {
+    margin: 30px 0 0 60px;
+}
+
+/*besttraders and comments slider*/
+
+.sliderblock {
+    text-align: center;
+}
+
+.sliderblock h1 {
+    font-weight: 400;
+}
+
+.swiper {
+    margin-top: 70px;
+}
+
+
+.swiper-pagination span {
+    width: 10px;
+    height: 10px;
+    background: rgba(253, 222, 93, 1);
+}
+
+.swiper-slide {
+    border: 2px solid #000000;
+    border-radius: 20px;
+    padding: 30px 0 50px 30px;
+    max-width: 251px;
+    height: 190px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/*traders*/
+#besttraders {
+    margin-top: 200px !important;
+}
+
+.trade_wrapper {
+    gap: 69px;
+    row-gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tradersblock {
+    background: rgba(252, 221, 92, 0.2);
+    border: 2px solid #000000;
+    max-width: 300px;
+    height: auto;
+    padding: 30px 25px;
+    max-height: 370px;
+    margin-top: 87px;
+}
+
+.tradersblock h1 {
+    font-size: 33px;
+    text-align: center;
+}
+
+.traderscreen_logo {
+    margin: 20px;
+}
+
+.trade_block_flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.trade_block_flex img {
+    height: 120px;
+}
+
+.trade_block_flex h1 {
+    text-align: left;
+}
+
+.crown {
+    position: absolute;
+    top: -111px;
+    left: 0;
+    transform: rotate(46deg);
+}
+
+.works_block img {
+    height: 260px;
+    border-radius: 10px;
+}
+
+/*commentscreen*/
+
+#comments {
+    margin-top: 150px;
+
+}
+
+.comment_block {
+    margin: 45px 0 0 45px;
+    position: relative;
+    padding: 30px;
+    max-width: 270px;
+    height: auto;
+    align-self: flex-start;
+}
+
+.comment_block img {
+    position: absolute;
+    width: 85px;
+    top: -42.5px;
+    left: -42.5px;
+    border-radius: 100px;
+}
+
+/*acodrion*/
+#questions {
+    margin-top: 150px;
+    margin-bottom: 250px;
+}
+
+#questions h1, #questions p {
+    margin: auto;
+    text-align: center;
+    max-width: 1000px;
+}
+
+#questions p {
+    margin-top: 60px;
+    margin-bottom: 35px;
+}
+
+.acc_arrea_answer {
+    padding: 25px 122px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid #00000D;
+    backdrop-filter: blur(30px);
+    border-radius: 8px;
+
+    transition: .3s;
+
+    margin-bottom: 30px;
+}
+
+.acc_arrea_answer.active {
+    background: #FCD535;
+}
+
+.acc_answer_arrea {
+    margin-top: 25px;
+}
+
+.answer_title {
+    position: relative;
+}
+
+.answer_title svg {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -9px;
+    left: -95px;
+}
