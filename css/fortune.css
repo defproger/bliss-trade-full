@@ -315,11 +315,19 @@ header {
 
 
 .wheel-item h3 {
-    font-size: 30px;
+    font-size: 27px;
 }
 
 .wheel-item h1 {
-    font-size: 50px;
+    font-size: 38px;
+}
+
+.wheel-item h2 {
+    font-size: 17px;
+}
+
+.wheel-item img {
+    width: 40%;
 }
 
 .wheel-item:nth-child(2n) {

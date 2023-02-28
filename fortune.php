@@ -557,85 +557,111 @@
 
             </div>
             <div id="wheel" class="rgb-border">
+                <div class="wheel-item" data-prize-id="0">
+                    <h3>КУПОН</h3>
+                    <h1>1$</h1>
+                    <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
+                </div>
                 <div class="wheel-item" data-prize-id="1">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
+                    <h3>КУПОН</h3>
+                    <h1>100$</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
                 <div class="wheel-item" data-prize-id="2">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
-                    <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
+                    <img src="./img/fortune/iphone14.png" alt="">
                 </div>
                 <div class="wheel-item" data-prize-id="3">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
-                    <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
+                    <h2>Apple watch
+                        44mm GOLD</h2>
+                    <img src="./img/fortune/applewatch.png" alt="">
                 </div>
                 <div class="wheel-item" data-prize-id="4">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
+                    <h3>КУПОН</h3>
+                    <h1>10$</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
                 <div class="wheel-item" data-prize-id="5">
                     <h3>IPHONE</h3>
-                    <h1>14</h1>
-                    <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
+                    <h2>14 PRO MAX</h2>
+                    <img src="./img/fortune/iphone14promax.png" alt="">
                 </div>
                 <div class="wheel-item" data-prize-id="6">
                     <h3>IPHONE</h3>
-                    <h1>14</h1>
-                    <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
+                    <h2>14 PRO</h2>
+                    <img src="./img/fortune/iphone14pro.png" alt="">
                 </div>
                 <div class="wheel-item" data-prize-id="7">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
-                    <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
+                    <h3>КРУТИ</h3>
+                    <h2>еще раз</h2>
+                    <svg width="124" height="123" viewBox="0 0 124 123" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M79.4515 70.002L88.7286 83.6901M88.7286 83.6901L102.417 74.413M88.7286 83.6901L91.8476 67.4511C92.5986 63.5415 92.5721 59.5223 91.7697 55.6229C90.9674 51.7235 89.4048 48.0204 87.1713 44.7249C84.9378 41.4294 82.0771 38.6061 78.7524 36.4162C75.4278 34.2263 71.7044 32.7126 67.7948 31.9617M44.7015 53.4636L35.4244 39.7756M35.4244 39.7756L21.7364 49.0526M35.4244 39.7756L32.3054 56.0146C31.5545 59.9242 31.5809 63.9434 32.3833 67.8427C33.1857 71.7421 34.7482 75.4453 36.9817 78.7408C39.2152 82.0363 42.076 84.8596 45.4006 87.0495C48.7252 89.2394 52.4486 90.753 56.3582 91.504"
+                              stroke="url(#paint0_linear_1_6114)" stroke-width="4" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="paint0_linear_1_6114" x1="54.1539" y1="33.8439" x2="78.4304"
+                                            y2="92.0925" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="white"/>
+                                <stop offset="1" stop-color="#E8BF17"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
                 </div>
                 <div class="wheel-item" data-prize-id="8">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
-                    <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
-                </div>
-                <div class="wheel-item" data-prize-id="9">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
+                    <h3>КУПОН</h3>
+                    <h1>5$</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
                 <div class="wheel-item" data-prize-id="10">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
-                    <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
+                    <h3>Ipad</h3>
+                    <h2>PRO</h2>
+                    <img src="./img/fortune/ipadpro.png" alt="">
                 </div>
                 <div class="wheel-item" data-prize-id="11">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
+                    <h3>ПОВЕЗЕТ</h3>
+                    <h2>в следующий <br>
+                        раз</h2>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
                 <div class="wheel-item" data-prize-id="12">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
+                    <h3>КУПОН</h3>
+                    <h1>20$</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
                 <div class="wheel-item" data-prize-id="13">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
-                    <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
-                </div>
-                <div class="wheel-item" data-prize-id="14">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
-                    <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
+                    <h3>MacBook</h3>
+                    <h2>Pro 16</h2>
+                    <img src="./img/fortune/mac16.png" alt="">
                 </div>
                 <div class="wheel-item" data-prize-id="15">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
-                    <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
+                    <h3>КРУТИ</h3>
+                    <h2>еще раз</h2>
+                    <svg width="124" height="123" viewBox="0 0 124 123" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M79.4515 70.002L88.7286 83.6901M88.7286 83.6901L102.417 74.413M88.7286 83.6901L91.8476 67.4511C92.5986 63.5415 92.5721 59.5223 91.7697 55.6229C90.9674 51.7235 89.4048 48.0204 87.1713 44.7249C84.9378 41.4294 82.0771 38.6061 78.7524 36.4162C75.4278 34.2263 71.7044 32.7126 67.7948 31.9617M44.7015 53.4636L35.4244 39.7756M35.4244 39.7756L21.7364 49.0526M35.4244 39.7756L32.3054 56.0146C31.5545 59.9242 31.5809 63.9434 32.3833 67.8427C33.1857 71.7421 34.7482 75.4453 36.9817 78.7408C39.2152 82.0363 42.076 84.8596 45.4006 87.0495C48.7252 89.2394 52.4486 90.753 56.3582 91.504"
+                              stroke="url(#paint0_linear_1_6114)" stroke-width="4" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="paint0_linear_1_6114" x1="54.1539" y1="33.8439" x2="78.4304"
+                                            y2="92.0925" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="white"/>
+                                <stop offset="1" stop-color="#E8BF17"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
                 </div>
+                <div class="wheel-item" data-prize-id="14">
+                    <h3>MacBook</h3>
+                    <h2>Air</h2>
+                    <img src="./img/fortune/macair.png" alt="">
+                </div>
+
                 <div class="wheel-item" data-prize-id="16">
-                    <h3>IPHONE</h3>
-                    <h1>14</h1>
-                    <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
+                    <h3>КУПОН</h3>
+                    <h1>50$</h1>
+                    <img src="./img/fortune/iphone14.png" alt="">
                 </div>
             </div>
             <svg id="arrow" width="201" height="245" viewBox="0 0 201 245" fill="none"
