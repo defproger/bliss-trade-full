@@ -6,6 +6,7 @@
     <title>Bliss Trade</title>
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/fortune.css">
+    <link rel="stylesheet" href="./css/fortunepopup.css">
 </head>
 <body>
 <!--lavalamp background-->
@@ -557,42 +558,42 @@
 
             </div>
             <div id="wheel" class="rgb-border">
-                <div class="wheel-item" data-prize-id="0">
+                <div class="wheel-item" data-prize-id="1">
                     <h3>КУПОН</h3>
                     <h1>1$</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="1">
+                <div class="wheel-item" data-prize-id="2">
                     <h3>КУПОН</h3>
                     <h1>100$</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="2">
+                <div class="wheel-item" data-prize-id="3">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <img src="./img/fortune/iphone14.png" alt="">
                 </div>
-                <div class="wheel-item" data-prize-id="3">
+                <div class="wheel-item" data-prize-id="4">
                     <h2>Apple watch
                         44mm GOLD</h2>
                     <img src="./img/fortune/applewatch.png" alt="">
                 </div>
-                <div class="wheel-item" data-prize-id="4">
+                <div class="wheel-item" data-prize-id="5">
                     <h3>КУПОН</h3>
                     <h1>10$</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="5">
+                <div class="wheel-item" data-prize-id="6">
                     <h3>IPHONE</h3>
                     <h2>14 PRO MAX</h2>
                     <img src="./img/fortune/iphone14promax.png" alt="">
                 </div>
-                <div class="wheel-item" data-prize-id="6">
+                <div class="wheel-item" data-prize-id="7">
                     <h3>IPHONE</h3>
                     <h2>14 PRO</h2>
                     <img src="./img/fortune/iphone14pro.png" alt="">
                 </div>
-                <div class="wheel-item" data-prize-id="7">
+                <div class="wheel-item" data-prize-id="8">
                     <h3>КРУТИ</h3>
                     <h2>еще раз</h2>
                     <svg width="124" height="123" viewBox="0 0 124 123" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -609,7 +610,7 @@
                     </svg>
 
                 </div>
-                <div class="wheel-item" data-prize-id="8">
+                <div class="wheel-item" data-prize-id="9">
                     <h3>КУПОН</h3>
                     <h1>5$</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
@@ -635,7 +636,7 @@
                     <h2>Pro 16</h2>
                     <img src="./img/fortune/mac16.png" alt="">
                 </div>
-                <div class="wheel-item" data-prize-id="15">
+                <div class="wheel-item" data-prize-id="14">
                     <h3>КРУТИ</h3>
                     <h2>еще раз</h2>
                     <svg width="124" height="123" viewBox="0 0 124 123" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -652,12 +653,11 @@
                     </svg>
 
                 </div>
-                <div class="wheel-item" data-prize-id="14">
+                <div class="wheel-item" data-prize-id="15">
                     <h3>MacBook</h3>
                     <h2>Air</h2>
                     <img src="./img/fortune/macair.png" alt="">
                 </div>
-
                 <div class="wheel-item" data-prize-id="16">
                     <h3>КУПОН</h3>
                     <h1>50$</h1>
@@ -793,9 +793,43 @@
 </main>
 
 
+<div id="pop_up" class="pop_up">
+    <div class="pop_up_container">
+        <div id="pop_up_body" class="pop_up_body">
+            <div class="popup__wrapper">
+                <div class="popup__content">
+                    <h1 class="popup__title">ПРИЗ</h1>
+                    <div class="popup__body__container">
+                        <div class="coupon__block__div">
+                            <h3 class="popup__product__title">
+                                Apple watch
+                                44mm GOLD
+                            </h3>
+
+                            <div class="coupon__block">
+                                <h3>Купон на приз</h3>
+                                <h2 class="coupon__block_prize_code">N7M89K12</h2>
+                            </div>
+                        </div>
+                        <img class="popup__product__img" src="" alt="img">
+                    </div>
+
+                    <div id="pop_up_close" class="pop_up_close">&#10006</div>
+                </div>
+
+                <div class="reel__img__block">
+                    <img src="./img/baraban1.png" alt="img">
+                    <p>Для получение приза обратитесь к администратору нажав на кнопку "Получить приз"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="./js/lavalamp.js"></script>
 <script src="./js/burger.js"></script>
 <script src="./js/jquery.js"></script>
+<script src="./js/popupfortune.js"></script>
 <script src="./js/fortune.js"></script>
 
 </body>
