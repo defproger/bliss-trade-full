@@ -390,7 +390,7 @@ header {
     }
 
     .secondtext {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     header {
@@ -506,10 +506,24 @@ header {
     }
 
     .gridblock {
-        margin: 450px 0 180px;
+        margin: 0 0 180px;
         gap: 50px;
         align-items: center;
         justify-content: space-around;
-        flex-direction: column-reverse;
+        flex-direction: column;
+    }
+
+    .wheel {
+        margin-top: -110px;
+        margin-bottom: -700px;
+        transform: scale(0.4);
+    }
+
+    .gridblock .texts {
+        width: auto;
+    }
+
+    .maintext {
+        margin-bottom: 320px;
     }
 }
