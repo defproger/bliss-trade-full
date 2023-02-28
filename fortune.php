@@ -557,82 +557,82 @@
 
             </div>
             <div id="wheel" class="rgb-border">
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="1">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="2">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="3">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="4">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="5">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="6">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="7">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="8">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="9">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="10">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="11">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="12">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="13">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="14">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="15">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->
                 </div>
-                <div class="wheel-item" data-prize-id="">
+                <div class="wheel-item" data-prize-id="16">
                     <h3>IPHONE</h3>
                     <h1>14</h1>
                     <!--                    <img src="./img/fortune/iphone14.png" alt="">-->

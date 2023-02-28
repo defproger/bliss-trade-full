@@ -218,11 +218,14 @@ header {
     border-radius: 500px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
 
-    animation: wheelanim 60s linear infinite;
+    /*animation: wheelanim 60s linear infinite;*/
 
     position: relative;
     overflow: hidden;
     z-index: -1;
+
+    transition: all 15s ease;
+    transform: rotate(0deg);
 }
 
 .lights {
@@ -230,6 +233,8 @@ header {
     border: 30px solid transparent;
     overflow: visible;
     z-index: 1;
+    animation-delay: -1892ms;
+    transform: rotate(-11deg);
 }
 
 .wheel-item, .lights span {
@@ -252,62 +257,61 @@ header {
     transform: translate(-50%, 0) rotate(22.5deg);
 }
 
-.wheel-item:nth-child(3), .lights span:nth-child(3)  {
+.wheel-item:nth-child(3), .lights span:nth-child(3) {
     transform: translate(-50%, 0) rotate(45deg);
 }
 
-.wheel-item:nth-child(4), .lights span:nth-child(4)  {
+.wheel-item:nth-child(4), .lights span:nth-child(4) {
     transform: translate(-50%, 0) rotate(67.5deg);
 }
 
-.wheel-item:nth-child(5), .lights span:nth-child(5)  {
+.wheel-item:nth-child(5), .lights span:nth-child(5) {
     transform: translate(-50%, 0) rotate(90deg);
 }
 
-.wheel-item:nth-child(6), .lights span:nth-child(6)  {
+.wheel-item:nth-child(6), .lights span:nth-child(6) {
     transform: translate(-50%, 0) rotate(112.5deg);
 }
 
-.wheel-item:nth-child(7), .lights span:nth-child(7)  {
+.wheel-item:nth-child(7), .lights span:nth-child(7) {
     transform: translate(-50%, 0) rotate(135deg);
 }
 
-.wheel-item:nth-child(8), .lights span:nth-child(8)  {
+.wheel-item:nth-child(8), .lights span:nth-child(8) {
     transform: translate(-50%, 0) rotate(157.5deg);
 }
 
-.wheel-item:nth-child(9), .lights span:nth-child(9)  {
+.wheel-item:nth-child(9), .lights span:nth-child(9) {
     transform: translate(-50%, 0) rotate(180deg);
 }
 
-.wheel-item:nth-child(10), .lights span:nth-child(10)  {
+.wheel-item:nth-child(10), .lights span:nth-child(10) {
     transform: translate(-50%, 0) rotate(202.5deg);
 }
 
-.wheel-item:nth-child(11), .lights span:nth-child(11)  {
+.wheel-item:nth-child(11), .lights span:nth-child(11) {
     transform: translate(-50%, 0) rotate(225deg);
 }
 
-.wheel-item:nth-child(12), .lights span:nth-child(12)  {
+.wheel-item:nth-child(12), .lights span:nth-child(12) {
     transform: translate(-50%, 0) rotate(247.5deg);
 }
 
-.wheel-item:nth-child(13), .lights span:nth-child(13)  {
+.wheel-item:nth-child(13), .lights span:nth-child(13) {
     transform: translate(-50%, 0) rotate(270deg);
 }
 
-.wheel-item:nth-child(14), .lights span:nth-child(14)  {
+.wheel-item:nth-child(14), .lights span:nth-child(14) {
     transform: translate(-50%, 0) rotate(292.5deg);
 }
 
-.wheel-item:nth-child(15), .lights span:nth-child(15)  {
+.wheel-item:nth-child(15), .lights span:nth-child(15) {
     transform: translate(-50%, 0) rotate(315deg);
 }
 
-.wheel-item:nth-child(16), .lights span:nth-child(16)  {
+.wheel-item:nth-child(16), .lights span:nth-child(16) {
     transform: translate(-50%, 0) rotate(337.5deg);
 }
-
 
 
 .wheel-item h3 {
@@ -350,14 +354,18 @@ header {
     background-clip: padding-box, border-box;
 }
 
-@keyframes wheelanim {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+#wheel.activeanim {
+    animation: wheelanim 1s ease;
 }
+
+/*@keyframes wheelanim {*/
+/*    0% {*/
+/*        transform: rotate(0deg);*/
+/*    }*/
+/*    100% {*/
+/*        transform: rotate(360deg);*/
+/*    }*/
+/*}*/
 
 /*/////////////////////*/
 
