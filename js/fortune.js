@@ -143,7 +143,7 @@ const notification = (name, prize) => {
     }
     notifyElem.append(info);
 
-    // info.fadeIn(700);
+    info.fadeIn(700);
 
     if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
         setTimeout(() => {
@@ -155,26 +155,27 @@ const notification = (name, prize) => {
 
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    for (let i = 0; i < 50; i++) {
-        $.ajax({
-            url: './app/notifications.php',
-            type: 'POST',
-            data: 'getLastData',
-            success: function (response) {
-                let data = JSON.parse(response);
-                if (data.name !== undefined)
+    $.ajax({
+        url: './app/notifications.php',
+        type: 'POST',
+        data: {getdata: 50},
+        success: function (response) {
+            let datas = JSON.parse(response);
+            if (datas[1] !== undefined)
+                for (const data of datas) {
                     notification(`Кто то из города ${data.name}`, `${data.prize}`);
-            }
-        });
-    }
+                }
+        }
+    });
 } else {
     setInterval(() => {
         $.ajax({
             url: './app/notifications.php',
             type: 'POST',
-            data: 'getLastData',
+            data: {getdata: 1},
             success: function (response) {
                 let data = JSON.parse(response);
+                data = data[0];
                 if (data.name !== undefined)
                     notification(`Кто то из города ${data.name}`, `${data.prize}`);
             }

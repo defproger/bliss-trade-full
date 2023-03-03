@@ -269,7 +269,7 @@
 
 @media screen and (max-width: 700px) {
     .pop_up_body {
-        width: 350px;
+        width: 345px;
 
     }
 
@@ -331,7 +331,7 @@
     }
 
     #pop_up2 .reel__img__block img {
-        width: 460px;
+        width: 345px;
     }
 
     #pop_up2 .popup__body__container {
@@ -343,4 +343,6 @@
         margin-left: 42px;
         padding-right: 15px;
     }
+
+
 }

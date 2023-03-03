@@ -67,13 +67,15 @@ $prizes = [
     'iPad Pro'
 ];
 
+$return = [];
+for ($i = 0; $i < $_POST['getdata']; $i++) {
+    $return[] = [
+        'name' => $cityArray[rand(0, count($cityArray) - 1)],
+        'prize' => getRandomItem($prizes, 0.65),
+    ];
+}
 
-$city = $cityArray[rand(0, count($cityArray) - 1)];
-
-echo json_encode([
-    'name' => $city,
-    'prize' => getRandomItem($prizes, 0.65),
-]);
+echo json_encode($return);
 
 
 function getRandomItem($arr, $chance)
@@ -94,4 +96,3 @@ function getRandomItem($arr, $chance)
         }
     }
 }
-
