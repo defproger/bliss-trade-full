@@ -182,6 +182,7 @@ header {
     gap: 5px;
     margin-left: 15px;
     color: black;
+    cursor: pointer;
 }
 
 .gridblock .secondtext svg {
@@ -235,6 +236,14 @@ header {
     z-index: 1;
     animation-delay: -1892ms;
     transform: rotate(-11deg);
+}
+
+.lights span {
+    animation: .7s wheellightanim ease-in-out infinite;
+}
+
+.lights span:nth-child(2n) {
+    animation-delay: 1s;
 }
 
 .wheel-item, .lights span {
@@ -362,20 +371,60 @@ header {
     background-clip: padding-box, border-box;
 }
 
-#wheel.activeanim {
-    animation: wheelanim 1s ease;
+@keyframes wheellightanim {
+    50% {
+        opacity: 0.68;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-/*@keyframes wheelanim {*/
-/*    0% {*/
-/*        transform: rotate(0deg);*/
-/*    }*/
-/*    100% {*/
-/*        transform: rotate(360deg);*/
-/*    }*/
-/*}*/
+#paybutton.active {
+    background: #c7000025;
+    box-shadow: 0 0 20px -12px rgba(0, 0, 0, 0.44) inset;
+    border: 3px solid #c70000;
+}
 
 /*/////////////////////*/
+
+
+.notification_container {
+    width: 300px;
+    /*background: #ff000094;*/
+    height: 85%;
+    position: fixed;
+    top: 15%;
+    right: 0;
+}
+
+.notification {
+    width: 240px;
+    background: white;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 0 5px 20px 0px rgb(0 0 0 / 40%);
+    padding: 10px 20px;
+    transition: .3s;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.notification h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #c70000;
+}
+
+.notification p {
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 15px;
+}
+
+.notification h4 {
+    font-size: 25px;
+    letter-spacing: 4px;
+}
 
 @media screen and (max-width: 700px) {
     .container {
@@ -390,7 +439,7 @@ header {
     }
 
     .secondtext {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     header {
@@ -502,7 +551,7 @@ header {
 
 
     main {
-        margin-top: 60px !important;
+        margin-top: 80px !important;
     }
 
     .gridblock {
@@ -526,4 +575,28 @@ header {
     .maintext {
         margin-bottom: 320px;
     }
+
+    .notification_container {
+        width: 100%;
+        background: #e6e6e645;
+        height: auto;
+        position: absolute;
+        backdrop-filter: blur(10px);
+        top: 90px;
+        padding: 10px 0 0;
+    }
+
+    .notification {
+        width: max-content;
+        background: none;
+        border-radius: 0;
+        margin: 0;
+        box-shadow: none;
+        padding: 0 30px;
+        transition: .3s;
+        display: none;
+        align-items: center;
+        gap: 12px;
+    }
+
 }
