@@ -2,7 +2,7 @@
 echo '[
   {
     "status": "winner",
-    "prize": 3,
+    "prize": 15,
     "code_prize": 1354
   }
 ]';

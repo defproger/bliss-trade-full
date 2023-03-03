@@ -267,6 +267,12 @@
     margin-top: 84px;
 }
 
+.fornonel {
+    font-size: 50px !important;
+    line-height: 200px !important;
+    width: auto !important;
+}
+
 @media screen and (max-width: 700px) {
     .pop_up_body {
         width: 345px;
@@ -344,5 +350,9 @@
         padding-right: 15px;
     }
 
+    .fornonel {
+        font-size: 30px !important;
+        line-height: 60px !important;
+    }
 
 }

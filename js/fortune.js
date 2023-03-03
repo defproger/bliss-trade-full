@@ -54,6 +54,10 @@ const prize = (id, code) => {
                     openpopupfunction()
                 }, 500);
             } else {
+                if (id === 11)
+                    $("#pop_up3  .popup__product__title")[0].classList.add('fornonel')
+                else
+                    $("#pop_up3  .popup__product__title")[0].classList.remove('fornonel')
                 $('#pop_up3 .popup__product__title')[0].innerHTML = wheel.children[id - 1].children[wheel.children[id - 1].children.length - 1].innerText;
                 $('#pop_up3 .coupon__block_prize_code')[0].innerHTML = code;
                 $('#pop_up3 .popup__product__img').attr('src', $(image).attr('src'));
@@ -92,10 +96,14 @@ const infopopup = (text) => {
             popup.remove();
         });
     });
+
+    btn.classList.remove('active');
+
 }
 btn.addEventListener('click', (e) => {
     e.preventDefault();
     if (!btn.classList.contains('active')) {
+        btn.classList.add('active');
         let promo = document.querySelector('#promo').value;
         $.ajax({
             url: './app/proccesing.php',
@@ -110,9 +118,12 @@ btn.addEventListener('click', (e) => {
                     infopopup('Этот код уже использован');
                 else if (data.status === 'undefinedpromo')
                     infopopup('Такого кода не существует');
+
             },
             error: function (xhr, status, error) {
-                alert('Ошибка, попробуйте позже');
+                infopopup('Ошибка, попробуйте позже');
+                btn.classList.remove('active');
+
             }
         });
     }
