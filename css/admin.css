@@ -383,6 +383,7 @@ main#deposit {
 }
 
 .paymethodblock {
+    cursor: pointer;
     border: 1px solid #000000;
     border-radius: 20px;
     padding: 20px;
@@ -413,7 +414,9 @@ main#deposit {
 .paymethodblock:hover {
     box-shadow: 0 4px 20px -5px #c70000;
 }
-
+.paymethodblock.active {
+    box-shadow: 0 4px 20px 0px #c70000;
+}
 
 /*withdraw page*/
 main#withdraw {

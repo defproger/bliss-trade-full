@@ -78,8 +78,6 @@
                     <a href="./reg.html">Регистрация</a>
                     <a href="./login.html" class="active">Авторизация</a>
                 </div>
-                <input type="text" name="name" placeholder="Имя">
-                <input type="tel" name="tel" placeholder="Телефон">
                 <input type="email" name="email" placeholder="Email">
                 <input type="password" name="pass" placeholder="Password">
                 <input type="submit" id="paybutton" value="Авторизация">
@@ -113,39 +111,7 @@
 <script src="./js/burger.js"></script>
 <script src="./js/jquery.js"></script>
 <script src="./js/infopopup.js"></script>
-<script>
-    const newCookie = (hash, id) => {
-        const expirationDate = new Date();
-        expirationDate.setDate(expirationDate.getDate() + 1);
-
-        document.cookie = `hash=${hash}; id=${id}; expires=${expirationDate.toUTCString()}; path=/`;
-    };
-    $('#log-form').submit(function (event) {
-        event.preventDefault();
-        let data = {};
-        $.each($(this).serializeArray(), (i, field) => {
-            data[field.name] = field.value;
-        });
-        $.ajax({
-            url: './app/user.php',
-            type: 'POST',
-            data: {
-                method: 'log',
-                data,
-            },
-            success: function (response) {
-                if (response.success) {
-                    newCookie(response.hash, response.id)
-                    window.location.href = "lk/admin.html";
-                } else {
-                    infopopup(response.msg)
-                }
-            },
-            error: function (error) {
-                infopopup("Произошла неизвестная ошибка ):")
-            }
-        });
-    });
-</script>
+<script type="module" src="./js/js.cookie.min.mjs"></script>
+<script type="module" src="./js/login.js"></script>
 </body>
 </html>

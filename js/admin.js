@@ -1,29 +1,29 @@
-let balance = 80;
-let balanceElem = document.getElementsByClassName('balancevalue');
-for (const balanceElement of balanceElem) {
-    balanceElement.innerHTML = "$" + balance;
-}
-let message = (msg, type) => {
+import Cookies from './js.cookie.min.mjs'
+let user;
+let checklogin = Cookies.get('hash');
+checklogin !== undefined ?
+    $.ajax({
+        url: '../app/user.php',
+        type: 'POST',
+        data: {
+            method: 'auth',
+            hash: checklogin,
+            id: Cookies.get('id')
+        },
+        success: function (response) {
+            if (response.success) {
+                user = response.user;
+                setBalance(user.balance)
 
-    let message = document.getElementsByClassName('alertmessage')[0];
-    if (message !== undefined) {
-        message.classList = 'alertmessage';
-        message.style.opacity = type === 'off' ? '0' : '1';
+            } else {
+                window.location.href = "../login.html";
+            }
+        }
+    }) : window.location.href = "../login.html";
 
-        message.children[0].innerText = msg;
-        message.classList.add(type)
+const setBalance = (balance) => {
+    let balanceElem = document.getElementsByClassName('balancevalue');
+    for (const balanceElement of balanceElem) {
+        balanceElement.innerHTML = "$" + balance;
     }
-
-};
-message('', 'off');
-
-
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text)
-        .then(() => {
-            console.log('Текст скопирован в буфер обмена');
-        })
-        .catch((error) => {
-            console.error('Не удалось скопировать текст: ', error);
-        });
 }

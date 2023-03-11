@@ -434,7 +434,10 @@
 
     </main>
 </div>
-<script src="../js/admin.js"></script>
+<script src="../js/jquery.js"></script>
+<script type="module" src="../js/admin.js"></script>
+<script src="../js/adminfunctions.js"></script>
+
 <script src="../js/burger.js"></script>
 <script src="../js/swiper-bundle.min.js"></script>
 <script>
@@ -449,6 +452,10 @@
         },
     }
     const tradeslider = new Swiper("#dipositslider", settings);
+
+    // if (user.balance === 0) {
+    //     window.location.href = "./deposit.html";
+    // }
 </script>
 </body>
 </html>

@@ -191,17 +191,17 @@
                 <p>Введите сумму депозита:</p>
                 <input type="number" id="topupamount" placeholder="Сумма $0.00">
                 <div class="paymethods">
-                    <a href="" class="paymethodblock">
+                    <a class="paymethodblock" data-type="card">
                         <img src="../img/paycard.png" alt="">
                         <h3 class="maintext">Visa/Master Card</h3>
                         <p>Комиссия 0%</p>
                     </a>
-                    <a href="" class="paymethodblock">
+                    <a class="paymethodblock" data-type="btc">
                         <img src="../img/paybitcoin.png" alt="">
                         <h3 class="maintext">BitCoin (BTC)</h3>
                         <p>Комиссия 0%</p>
                     </a>
-                    <a href="" class="paymethodblock">
+                    <a class="paymethodblock" data-type="trc">
                         <img src="../img/paytether.png" alt="">
                         <h3 class="maintext">Tether (TRC-20)</h3>
                         <p>Комиссия 0%</p>
@@ -214,9 +214,26 @@
     </main>
 </div>
 
-<script src="../js/admin.js"></script>
+<script src="../js/jquery.js"></script>
+<script type="module" src="../js/admin.js"></script>
+<script src="../js/adminfunctions.js"></script>
 <script src="../js/burger.js"></script>
 <script>
+    const payMethodBlocks = document.querySelectorAll('.paymethodblock');
+
+    payMethodBlocks.forEach((block) => {
+        block.addEventListener('click', () => {
+            payMethodBlocks.forEach((b) => {
+                if (b !== block) {
+                    b.classList.remove('active');
+                }
+            });
+            block.classList.add('active');
+        });
+    });
+</script>
+<script type="module">
+    import Cookies from '../js/js.cookie.min.mjs';
 
     let submit = document.getElementById('submittopup');
     message('', 'off');
@@ -226,9 +243,23 @@
         message('', 'off')
         input.value < 12 ? message('Минимальная сумма пополнения 500 грн', 'alert') : '';
 
-        //todo выбран ли метод
-        if (input.value >= 12) {
-            message('Заявка успешно создана', 'ok')
+        let type = $('.paymethodblock.active').data('type');
+        type === undefined ? message('Вы не выбрали метод оплаты', 'warning') : '';
+        if (input.value >= 12 && type !== undefined) {
+            $.ajax({
+                url: '../app/top_up.php',
+                type: 'POST',
+                data: {
+                    amount: input.value,
+                    type,
+                    id: Cookies.get('id'),
+                },
+                success: function (response) {
+                    if (response.success) {
+                        window.open(response.url, '_blank')
+                    }
+                }
+            })
         }
     })
 </script>
