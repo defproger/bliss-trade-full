@@ -1,4 +1,4 @@
-import Cookies from './js.cookie.min.mjs'
+import Cookies from './js.cookie.min.js'
 let user;
 let checklogin = Cookies.get('hash');
 checklogin !== undefined ?
