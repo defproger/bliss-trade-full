@@ -724,6 +724,7 @@ main#referals {
     display: flex;
     border-radius: 5px;
     border: 1px solid #000000;
+    margin-left: 2px;
 }
 
 .reflinkblock .input button {
