@@ -121,9 +121,9 @@ $prizes = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bliss Trade</title>
-    <link rel="stylesheet" href="./css/fonts.css">
-    <link rel="stylesheet" href="./css/fortune.css">
-    <link rel="stylesheet" href="./css/fortunepopup.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/fortune.css">
+    <link rel="stylesheet" href="../css/fortunepopup.css">
 </head>
 <body>
 <!--lavalamp background-->
@@ -843,7 +843,7 @@ $prizes = [
                 </div>
 
                 <div class="reel__img__block">
-                    <img src="./img/baraban1.png" alt="img">
+                    <img src="../img/baraban1.png" alt="img">
                     <p>Для получение приза обратитесь к администратору нажав на кнопку "Получить приз"</p>
                 </div>
             </div>
@@ -873,7 +873,7 @@ $prizes = [
 
                 <div class="reel__img__block">
                     <p>1 купон - 1 игра</p>
-                    <img src="./img/baraban2.png" alt="img">
+                    <img src="../img/baraban2.png" alt="img">
                 </div>
             </div>
         </div>
@@ -901,7 +901,7 @@ $prizes = [
                 </div>
 
                 <div class="reel__img__block">
-                    <img src="./img/baraban3.png" alt="img">
+                    <img src="../img/baraban3.png" alt="img">
                     <p>Для получение приза обратитесь к администратору нажав на кнопку "Получить приз"</p>
                 </div>
             </div>
@@ -909,11 +909,11 @@ $prizes = [
     </div>
 </div>
 
-<script src="./js/lavalamp.js"></script>
-<script src="./js/burger.js"></script>
-<script src="./js/jquery.js"></script>
-<script src="./js/popupfortune.js"></script>
-<script src="./js/fortune.js"></script>
+<script src="../js/lavalamp.js"></script>
+<script src="../js/burger.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/popupfortune.js"></script>
+<script src="../js/fortune.js"></script>
 
 </body>
 </html>
