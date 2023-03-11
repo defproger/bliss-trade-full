@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bliss Trade</title>
     <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/fortunepopup.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/logpage.css">
     <link rel="stylesheet" href="./css/mobile.css">
@@ -71,7 +72,7 @@
 <div class="container">
 
     <div class="gridblock">
-        <form action="">
+        <form action="" id="log-form">
             <div class="inputs">
                 <div class="pageinput secondtext">
                     <a href="./reg.html">Регистрация</a>
@@ -110,5 +111,41 @@
 
 
 <script src="./js/burger.js"></script>
+<script src="./js/jquery.js"></script>
+<script src="./js/infopopup.js"></script>
+<script>
+    const newCookie = (hash, id) => {
+        const expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + 1);
+
+        document.cookie = `hash=${hash}; id=${id}; expires=${expirationDate.toUTCString()}; path=/`;
+    };
+    $('#log-form').submit(function (event) {
+        event.preventDefault();
+        let data = {};
+        $.each($(this).serializeArray(), (i, field) => {
+            data[field.name] = field.value;
+        });
+        $.ajax({
+            url: './app/user.php',
+            type: 'POST',
+            data: {
+                method: 'log',
+                data,
+            },
+            success: function (response) {
+                if (response.success) {
+                    newCookie(response.hash, response.id)
+                    window.location.href = "lk/admin.html";
+                } else {
+                    infopopup(response.msg)
+                }
+            },
+            error: function (error) {
+                infopopup("Произошла неизвестная ошибка ):")
+            }
+        });
+    });
+</script>
 </body>
 </html>

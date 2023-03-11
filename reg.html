@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bliss Trade</title>
     <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/fortunepopup.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/logpage.css">
     <link rel="stylesheet" href="./css/mobile.css">
@@ -71,7 +72,7 @@
 <div class="container">
 
     <div class="gridblock">
-        <form action="">
+        <form action="" id="reg-form">
             <div class="inputs">
                 <div class="pageinput secondtext">
                     <a href="./reg.html" class="active">Регистрация</a>
@@ -109,5 +110,39 @@
 
 
 <script src="./js/burger.js"></script>
+<script src="./js/jquery.js"></script>
+<script src="./js/infopopup.js"></script>
+<script>
+    $('#reg-form').submit(function (event) {
+        event.preventDefault();
+        let data = {};
+        $.each($(this).serializeArray(), (i, field) => {
+            data[field.name] = field.value;
+        });
+        $.ajax({
+            url: './app/user.php',
+            type: 'POST',
+            data: {
+                method: 'reg',
+                data,
+            },
+            success: function (response) {
+                // response = JSON.parse(response);
+                if (response.success) {
+                    infopopup(response.msg)
+                    setTimeout(() => {
+                        window.location.href = "login.html";
+                    }, 3000)
+
+                } else {
+                    infopopup(response.msg)
+                }
+            },
+            error: function (error) {
+                infopopup("Произошла неизвестная ошибка ):")
+            }
+        });
+    });
+</script>
 </body>
 </html>
