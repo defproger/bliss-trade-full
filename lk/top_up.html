@@ -256,6 +256,7 @@
                 },
                 success: function (response) {
                     if (response.success) {
+                        message('Заявка успешно создана', 'ok');
                         window.open(response.url, '_blank')
                     }
                 }
