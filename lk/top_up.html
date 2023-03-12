@@ -241,11 +241,11 @@
         e.preventDefault();
         let input = document.getElementById('topupamount');
         message('', 'off')
-        input.value < 12 ? message('Минимальная сумма пополнения 500 грн', 'alert') : '';
+        input.value < 25 ? message('Минимальная сумма пополнения $25', 'alert') : '';
 
         let type = $('.paymethodblock.active').data('type');
         type === undefined ? message('Вы не выбрали метод оплаты', 'warning') : '';
-        if (input.value >= 12 && type !== undefined) {
+        if (input.value >= 25 && type !== undefined) {
             $.ajax({
                 url: '../app/top_up.php',
                 type: 'POST',

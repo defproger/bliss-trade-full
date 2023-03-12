@@ -35,14 +35,14 @@ $amount = is_numeric(@$_POST['amount']) ? htmlspecialchars(@$_POST['amount']) : 
 $type = htmlspecialchars(@$_POST['type']);
 $uid = htmlspecialchars(@$_POST['id']);
 
-if ($amount >= 12):
+if ($amount >= 25):
     switch ($type) :
         case 'card':
             $exchange = json_decode(file_get_contents('https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5'));
 
             $link = pay([
                 "currency" => "uah",
-                "amount" => $amount * $exchange[1]['sale'],
+                "amount" => $amount * $exchange[1]->sale,
                 "payment_service" => "default"
             ]);
             $url = $link->payment_url;
