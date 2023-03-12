@@ -186,7 +186,7 @@
             <div class="payblock">
                 <div class="payblock-header">
                     <p><b>Тариф “<span id="tarrifname"></span>” </b></p>
-                    <p>Доходность <b>0.5% в день</b></p>
+                    <p>Доходность <b class="bidvalue">0.5% в день</b></p>
                 </div>
                 <form class="payblock-body">
                     <p>Доступные средства</p>
@@ -261,7 +261,7 @@
                                             Ставка:
                                         </span>
                         </h3>
-                        <p class="secondtext">0.5% в день</p>
+                        <p class="secondtext bidvalue">0.5% в день</p>
                     </div>
                     <div class="depositblock-texts">
                         <h3>
@@ -281,7 +281,7 @@
                                             Начисленная прибыль
                                         </span>
                         </h3>
-                        <p class="secondtext">0.00 $ </p>
+                        <p class="secondtext" id="profitvalue">0.00 $ </p>
                     </div>
                     <div class="depositblock-texts">
                         <h3>
@@ -305,7 +305,7 @@
                                            Сумма на выходе
                                         </span>
                         </h3>
-                        <p class="secondtext">0.00 $ </p>
+                        <p class="secondtext" id="exitsumm">0.00 $ </p>
                     </div>
                     <div class="depositblock-texts">
                         <h3>
@@ -331,7 +331,7 @@
                                             Дата окончания депозита
                                         </span>
                         </h3>
-                        <p class="secondtext">13.01.2023 12:36 (GMT+2)</p>
+                        <p class="secondtext" id="dateend">13.01.2023 12:36 (GMT+2)</p>
                     </div>
 
                 </div>
@@ -343,7 +343,7 @@
             <div id="dipositslider" class="swiper secondtext">
                 <div class="swiper-wrapper trade_wrapper">
 
-<!--                    <div class="swiper-slide tradersblock with-crown">-->
+                    <!--                    <div class="swiper-slide tradersblock with-crown">-->
                     <!--                        <div class="crown">-->
                     <!--                            <svg width="137" height="128" viewBox="0 0 137 128" fill="none"-->
                     <!--                                 xmlns="http://www.w3.org/2000/svg">-->
@@ -439,8 +439,8 @@
                     $tarrifs = db_getConnection()->query("SELECT * FROM `tariff` WHERE `level`='{$user['level']}'")->fetchAll();
                     foreach ($tarrifs as $tarrif):
                         ?>
-                        <div class="swiper-slide tradersblock <?= $tarrif['vip'] === 1 ? 'with-crown' : '' ?>">
-                            <?php if ($tarrif['vip'] === 1): ?>
+                        <div class="swiper-slide tradersblock <?= $tarrif['vip'] == 1 ? 'with-crown' : '' ?>">
+                            <?php if ($tarrif['vip'] == 1): ?>
                                 <div class="crown">
                                     <svg width="137" height="128" viewBox="0 0 137 128" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -451,7 +451,7 @@
                                 </div>
                             <?php endif; ?>
                             <h1><?= $tarrif['name'] ?></h1>
-                            <?php if ($tarrif['vip'] === 1): ?>
+                            <?php if ($tarrif['vip'] == 1): ?>
                                 <svg width="157" height="153" viewBox="0 0 157 153" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path d="M54.2283 35.2117L0.699594 2.59236L6.64723 47.0733L8.13414 78.2099L9.62105 81.1753L24.4901 112.312L55.7152 146.414L72.0712 152.345H85.4534L100.323 146.414L130.061 115.277L147.904 79.6926L149.391 48.556L155.338 1.10966L101.809 35.2117H54.2283Z"
@@ -506,7 +506,7 @@
         </div>
     </main>
 </div>
-<pre>
+<!--<pre>-->
 <?php
 //print_r($tarrifs);
 ?>
@@ -517,6 +517,8 @@
 <script src="../js/burger.js"></script>
 <script src="../js/swiper-bundle.min.js"></script>
 <script>
+    let balance = <?= $user['balance']?>;
+
     settings = {
         slidesPerView: 'auto',
         centeredSlides: true,
@@ -529,16 +531,32 @@
     }
     const tradeslider = new Swiper("#dipositslider", settings);
 
+    const datesetter = (plus) => {
+        const today = new Date();
+        const targetDate = new Date(today.getTime() + plus * 24 * 60 * 60 * 1000);
+        // return today.toLocaleString('ru-RU', {timeZone: 'Europe/Moscow', timeZoneName: 'short'})
+        return targetDate.toLocaleString('ru-RU', {timeZone: 'Europe/Kiev', timeZoneName: 'short'})
+    }
+
+
     let min, max;
-    let changeInfo = () => {
+    const changeInfo = () => {
         let info = document.getElementsByClassName('swiper-slide-active')[0].children;
 
         let name = info[info.length - 5].innerText;
+        let bid = info[info.length - 3].innerText.match(/[\d.]+/g);
+        let period = info[info.length - 2].innerText.replace(/[^+\d]/g, '');
         min = info[info.length - 1].children[0].children[0].innerText;
         max = info[info.length - 1].children[1].children[0].innerText;
         document.getElementById('tarrifname').innerText = name;
         document.getElementById('mindepositamount').innerText = min;
         document.getElementById('maxdepositamount').innerText = max;
+
+        document.querySelectorAll('.bidvalue').forEach(el => {
+            el.innerText = `${bid}% в день`;
+        })
+        document.getElementById('dateend').innerText = datesetter(period);
+
     }
     changeInfo()
 
@@ -562,9 +580,9 @@
 
 
     let submit = document.getElementById('submitdeposit');
+    let input = document.getElementById('depositamount');
     submit.addEventListener('click', function (e) {
         e.preventDefault();
-        let input = document.getElementById('depositamount');
         message('', 'off')
         input.value > Number(max.replace(/[^+\d]/g, '')) ? message('Слишком большая сумма', 'alert') : '';
         input.value < Number(min.replace(/[^+\d]/g, '')) ? message('Слишком маленькая сумма', 'alert') : '';
@@ -577,6 +595,18 @@
             document.getElementById('depositamountpay').innerText = `сумма ${input.value}$`;
         }
     })
+
+    input.addEventListener('input', () => {
+        let info = document.getElementsByClassName('swiper-slide-active')[0].children;
+        let bid = info[info.length - 3].innerText.match(/[\d.]+/g);
+        let period = info[info.length - 2].innerText.replace(/[^+\d]/g, '');
+
+        let amount_profit = ((input.value / 100) * bid) * period
+
+        document.getElementById('exitsumm').innerText = +input.value + amount_profit;
+        document.getElementById('profitvalue').innerText = amount_profit;
+    })
+
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         let tariff = document.getElementsByClassName('swiper-slide');
