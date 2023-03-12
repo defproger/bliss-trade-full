@@ -82,6 +82,58 @@ if (isset($_POST['method'])) :
                     "success" => false
                 ]);
             break;
+        case 'deposit':
+            $user = db_getById('users', $_POST['id']);
+            $tariff = db_getById('tariff', $_POST['did']);
+            if ($user['hash'] === $_POST['hash'])
+                if ($user['level'] === $tariff['level'])
+                    if ($user['balance'] > $_POST['amount'] && is_numeric($_POST['amount'])) {
+                        $today = new DateTime('now');
+                        $workingDaysToAdd = $tariff['period'];
+                        $daysAdded = 0;
+                        $next = new DateTime('now');
+                        while ($daysAdded < $workingDaysToAdd) {
+                            $today->add(new DateInterval('P1D'));
+                            if ($daysAdded < 1) {
+                                $next->add(new DateInterval('P1D'));
+                            }
+                            $dayOfWeek = $today->format('N');
+                            if ($dayOfWeek <= 5) {
+                                $daysAdded++;
+                            }
+                        }
+                        $closed = $today->format('Y-m-d');
+                        db_insert('deposit', [
+                            "id_user" => $user['id'],
+                            "id_plan" => $tariff['id'],
+                            "amount" => $_POST['amount'],
+                            "amount_profit" => 0,
+                            "date_next" => formDate($next),
+                            "date_closed" => formDate($closed),
+                            "status" => 'open',
+                        ]);
+                        db_update('users', $user['id'], [
+                            'balance' => $user['balance'] - $_POST['amount']
+                        ]);
+                        echo json_encode([
+                            "success" => true
+                        ]);
+                    } else
+                        echo json_encode([
+                            "success" => false,
+                            'msg' => "У вас не хватает средств"
+                        ]);
+                else
+                    echo json_encode([
+                        "success" => false,
+                        'msg' => "Вам недоступен этот тариф"
+                    ]);
+            else
+                echo json_encode([
+                    "success" => false,
+                    'msg' => "Вы не авторизованны в системе"
+                ]);
+            break;
     endswitch;
 
 

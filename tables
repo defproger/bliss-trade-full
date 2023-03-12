@@ -1,3 +1,18 @@
+create table deposit
+(
+    id            int auto_increment
+        primary key,
+    id_user       int                                 not null,
+    id_plan       int                                 not null,
+    amount        float                               not null,
+    amount_profit float                               null,
+    date_open     timestamp default CURRENT_TIMESTAMP not null,
+    date_next     datetime                            null,
+    date_closed   datetime                            null,
+    status        varchar(123)                        not null
+)
+    charset = latin1;
+
 create table payments
 (
     id            int auto_increment
@@ -9,6 +24,20 @@ create table payments
     type_currency varchar(123)                        not null,
     wallet        varchar(123)                        null,
     date_create   timestamp default CURRENT_TIMESTAMP not null
+)
+    charset = latin1;
+
+create table tariff
+(
+    id    int auto_increment
+        primary key,
+    name  varchar(123)    not null,
+    bid   float           not null,
+    period int not null,
+    level varchar(123)    not null,
+    min   int default 1   not null,
+    max   int default 100 not null,
+    vip   int(1)          null
 )
     charset = latin1;
 
@@ -25,9 +54,9 @@ create table users
     ip      varchar(100)              null,
     status  int                       null,
     hash    varchar(222)              null,
+    level   int default 0             null,
     constraint email
         unique (email)
 )
     charset = latin1;
-
 

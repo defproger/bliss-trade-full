@@ -207,32 +207,32 @@
                         </svg>
                     </button>
                 </form>
-                <div class="payblock-body">
-                    <div class="trade_block_flex">
-                        <h4>Выберите способ пополнения</h4>
-                        <h4 id="depositamountpay"></h4>
-                    </div>
-                    <div class="paymethods">
-                        <a href="" class="paymethodblock">
-                            <img src="../img/paycard.png" alt="">
-                            <h3 class="maintext">Visa/Master Card</h3>
-                            <p>Комиссия 0%</p>
-                            <button class="helpbutton">Пополнить</button>
-                        </a>
-                        <a href="" class="paymethodblock">
-                            <img src="../img/paybitcoin.png" alt="">
-                            <h3 class="maintext">BitCoin (BTC)</h3>
-                            <p>Комиссия 0%</p>
-                            <button class="helpbutton">Пополнить</button>
-                        </a>
-                        <a href="" class="paymethodblock">
-                            <img src="../img/paytether.png" alt="">
-                            <h3 class="maintext">Tether (TRC-20)</h3>
-                            <p>Комиссия 0%</p>
-                            <button class="helpbutton">Пополнить</button>
-                        </a>
-                    </div>
-                </div>
+                <!--                <div class="payblock-body">-->
+                <!--                    <div class="trade_block_flex">-->
+                <!--                        <h4>Выберите способ пополнения</h4>-->
+                <!--                        <h4 id="depositamountpay"></h4>-->
+                <!--                    </div>-->
+                <!--                    <div class="paymethods">-->
+                <!--                        <a href="" class="paymethodblock">-->
+                <!--                            <img src="../img/paycard.png" alt="">-->
+                <!--                            <h3 class="maintext">Visa/Master Card</h3>-->
+                <!--                            <p>Комиссия 0%</p>-->
+                <!--                            <button class="helpbutton">Пополнить</button>-->
+                <!--                        </a>-->
+                <!--                        <a href="" class="paymethodblock">-->
+                <!--                            <img src="../img/paybitcoin.png" alt="">-->
+                <!--                            <h3 class="maintext">BitCoin (BTC)</h3>-->
+                <!--                            <p>Комиссия 0%</p>-->
+                <!--                            <button class="helpbutton">Пополнить</button>-->
+                <!--                        </a>-->
+                <!--                        <a href="" class="paymethodblock">-->
+                <!--                            <img src="../img/paytether.png" alt="">-->
+                <!--                            <h3 class="maintext">Tether (TRC-20)</h3>-->
+                <!--                            <p>Комиссия 0%</p>-->
+                <!--                            <button class="helpbutton">Пополнить</button>-->
+                <!--                        </a>-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
             <div class="texts">
                 <h1>Персональная информация по депозиту </h1>
@@ -439,7 +439,8 @@
                     $tarrifs = db_getConnection()->query("SELECT * FROM `tariff` WHERE `level`='{$user['level']}'")->fetchAll();
                     foreach ($tarrifs as $tarrif):
                         ?>
-                        <div class="swiper-slide tradersblock <?= $tarrif['vip'] == 1 ? 'with-crown' : '' ?>">
+                        <div class="swiper-slide tradersblock <?= $tarrif['vip'] == 1 ? 'with-crown' : '' ?>"
+                             data-did="<?= $tarrif['id'] ?>">
                             <?php if ($tarrif['vip'] == 1): ?>
                                 <div class="crown">
                                     <svg width="137" height="128" viewBox="0 0 137 128" fill="none"
@@ -516,10 +517,12 @@
 
 <script src="../js/burger.js"></script>
 <script src="../js/swiper-bundle.min.js"></script>
-<script>
+<script type="module">
+    import Cookies from '../js/js.cookie.min.js'
+
     let balance = <?= $user['balance']?>;
 
-    settings = {
+    let settings = {
         slidesPerView: 'auto',
         centeredSlides: true,
         spaceBetween: 50,
@@ -565,8 +568,7 @@
     var observer = new MutationObserver(function (mutations) {
         mutations.forEach(function (mutationRecord) {
             i++;
-            if (document.getElementsByClassName('payblock-body')[1].style.display === 'none')
-                i % 3 === 0 ? changeInfo() : '';
+            i % 3 === 0 ? changeInfo() : '';
         });
     });
 
@@ -576,7 +578,7 @@
     }
 
     const depositbody = document.getElementsByClassName('payblock-body');
-    depositbody[1].style.display = 'none';
+    // depositbody[1].style.display = 'none';
 
 
     let submit = document.getElementById('submitdeposit');
@@ -590,9 +592,28 @@
         input.value > balance ? message('Не хватает средств', 'warning') : '';
 
         if (input.value <= Number(max.replace(/[^+\d]/g, '')) && input.value >= Number(min.replace(/[^+\d]/g, '')) && input.value <= balance) {
-            depositbody[0].style.display = 'none';
-            depositbody[1].style.display = 'flex';
-            document.getElementById('depositamountpay').innerText = `сумма ${input.value}$`;
+            let did = $('.swiper-slide-active').data('did');
+            $.ajax({
+                url: '../app/user.php',
+                type: 'POST',
+                data: {
+                    method: 'deposit',
+                    hash: Cookies.get('hash'),
+                    id: Cookies.get('id'),
+                    did,
+                    amount: input.value,
+                },
+                success: function (response) {
+                    if (response.success) {
+                        window.location.href = "index.php";
+                    } else {
+                        message(response.msg, 'warning')
+                    }
+                },
+                error: () => {
+                    message('Произошла неизвестная ошибка', 'warning')
+                }
+            })
         }
     })
 
@@ -603,8 +624,8 @@
 
         let amount_profit = ((input.value / 100) * bid) * period
 
-        document.getElementById('exitsumm').innerText = +input.value + amount_profit;
-        document.getElementById('profitvalue').innerText = amount_profit;
+        document.getElementById('exitsumm').innerText = (+input.value + amount_profit).toFixed(2);
+        document.getElementById('profitvalue').innerText = (amount_profit).toFixed(2);
     })
 
 
