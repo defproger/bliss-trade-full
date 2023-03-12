@@ -102,14 +102,14 @@ if (isset($_POST['method'])) :
                                 $daysAdded++;
                             }
                         }
-                        $closed = $today->format('Y-m-d');
+                        $closed = $today->format('Y-m-d H:i:s');
                         db_insert('deposit', [
                             "id_user" => $user['id'],
                             "id_plan" => $tariff['id'],
                             "amount" => $_POST['amount'],
                             "amount_profit" => 0,
-                            "date_next" => formDate($next),
-                            "date_closed" => formDate($closed),
+                            "date_next" => ($next->format('Y-m-d H:i:s')),
+                            "date_closed" => ($closed),
                             "status" => 'open',
                         ]);
                         db_update('users', $user['id'], [
