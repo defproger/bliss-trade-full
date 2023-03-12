@@ -1,0 +1,33 @@
+create table payments
+(
+    id            int auto_increment
+        primary key,
+    user_id       int                                 not null,
+    amount        float                               not null,
+    trx_hash      varchar(123) charset utf8           not null,
+    status        varchar(123)                        not null,
+    type_currency varchar(123)                        not null,
+    wallet        varchar(123)                        null,
+    date_create   timestamp default CURRENT_TIMESTAMP not null
+)
+    charset = latin1;
+
+create table users
+(
+    id      int auto_increment
+        primary key,
+    name    varchar(222) charset utf8 not null,
+    surname varchar(222) charset utf8 null,
+    phone   varchar(100)              not null,
+    email   varchar(100)              not null,
+    pswd    varchar(100)              not null,
+    balance float                     null,
+    ip      varchar(100)              null,
+    status  int                       null,
+    hash    varchar(222)              null,
+    constraint email
+        unique (email)
+)
+    charset = latin1;
+
+
