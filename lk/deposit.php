@@ -624,8 +624,8 @@
 
         let amount_profit = ((input.value / 100) * bid) * period
 
-        document.getElementById('exitsumm').innerText = (+input.value + amount_profit).toFixed(2);
-        document.getElementById('profitvalue').innerText = (amount_profit).toFixed(2);
+        document.getElementById('exitsumm').innerText = (+input.value + amount_profit).toFixed(2)  + "$";
+        document.getElementById('profitvalue').innerText = (amount_profit).toFixed(2) + "$";
     })
 
 
