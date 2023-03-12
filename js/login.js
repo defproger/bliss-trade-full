@@ -1,4 +1,4 @@
-import Cookies from './js.cookie.min.js'
+import Cookies from './js.cookie.min.mjs'
 
 const loginfunction = () => {
     $('#log-form').submit(function (event) {
