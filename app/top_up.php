@@ -8,7 +8,7 @@ function pay($request)
     global $PAYAPI;
     $public = $PAYAPI['publickey'];
     $secret = $PAYAPI['secretkey'];
-    $action = 'auth/payment_requests/address';
+    $action = 'auth/deposit';
     $nonce = substr((string)time(), 0, 9) . '0000';
     $body = json_encode($request);
 
@@ -18,6 +18,7 @@ function pay($request)
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         "accept: application/json",
+        "User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3",
         "content-type: application/json",
         "kun-apikey: " . $public,
         "kun-signature: " . hash_hmac("sha384", utf8_encode("/v3/{$action}{$nonce}{$body}"), utf8_encode($secret)),
@@ -42,10 +43,11 @@ if ($amount >= 25):
 
             $link = pay([
                 "currency" => "uah",
-                "amount" => $amount * $exchange[1]->sale,
+                "amount" => $amount * floatval($exchange[1]->sale),
                 "payment_service" => "default"
             ]);
-            $url = $link->payment_url;
+
+            $url = $link->flow_data->action;
             $trx_hash = $link->deposit_id;
             break;
         case 'btc':
