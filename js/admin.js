@@ -1,4 +1,5 @@
 import Cookies from './js.cookie.min.mjs'
+
 let user;
 let checklogin = Cookies.get('hash');
 checklogin !== undefined ?
@@ -16,6 +17,8 @@ checklogin !== undefined ?
                 setBalance(user.balance)
 
             } else {
+                Cookies.remove('hash');
+                Cookies.remove('id');
                 window.location.href = "../login.html";
             }
         }
@@ -27,3 +30,10 @@ const setBalance = (balance) => {
         balanceElement.innerHTML = "$" + balance;
     }
 }
+
+document.querySelector('#exitfromlkbtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    Cookies.remove('hash');
+    Cookies.remove('id');
+    window.location.href = "../login.html";
+})
