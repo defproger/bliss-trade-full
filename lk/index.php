@@ -84,7 +84,7 @@
     </header>
     <div class="header-buttons" id="navmenu">
         <nav>
-            <a href="./admin.html" class="link active">
+            <a href="./index.php" class="link active">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16.875 11.25H13.125C11.0625 11.25 9.375 12.9375 9.375 15V18.75C9.375 20.8125 11.0625 22.5 13.125 22.5H16.875C18.9375 22.5 20.625 20.8125 20.625 18.75V15"
                           stroke="#FCD535" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -170,7 +170,7 @@
     </div>
     <main>
         <h1 class="headertext">Мои депозиты</h1>
-        <a href="deposit.html" class="helpbutton headertext">
+        <a href="deposit.php" class="helpbutton headertext">
             <span>Создать депозит</span>
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.9 7.93994L15.52 10.5599C16.29 11.3299 16.29 12.5899 15.52 13.3599L9 19.8699" stroke="black"

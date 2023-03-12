@@ -19,7 +19,7 @@ const loginfunction = () => {
                 if (response.success) {
                     Cookies.set('hash', response.hash, {expires: 1})
                     Cookies.set('id', response.id, {expires: 1})
-                    window.location.href = "lk/admin.html";
+                    window.location.href = "lk/index.php";
                 } else {
                     infopopup(response.msg)
                 }
@@ -43,7 +43,7 @@ checklogin !== undefined ?
         },
         success: function (response) {
             if (response.success) {
-                window.location.href = "lk/admin.html";
+                window.location.href = "lk/index.php";
             } else {
                 Cookies.remove('hash')
                 Cookies.remove('id')
