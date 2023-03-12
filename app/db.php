@@ -1,12 +1,14 @@
 <?php
+require_once 'init.php';
 ini_set('display_errors', 1);
 function db_getConnection()
 {
-    $user = 'root';
-    $password = 'root';
-    $db = 'blisstrade';
-    $host = 'localhost';
-    $port = 3306;
+    global $DB;
+    $user = $DB['user'];
+    $password = $DB['password'];
+    $db = $DB['db'];
+    $host = $DB['host'];
+    $port = $DB['port'];
 
     static $dbh = null;
     if ($dbh != null) return $dbh;
