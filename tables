@@ -43,18 +43,23 @@ create table tariff
 
 create table users
 (
-    id      int auto_increment
+    id               int auto_increment
         primary key,
-    name    varchar(222) charset utf8 not null,
-    surname varchar(222) charset utf8 null,
-    phone   varchar(100)              not null,
-    email   varchar(100)              not null,
-    pswd    varchar(100)              not null,
-    balance float                     null,
-    ip      varchar(100)              null,
-    status  int                       null,
-    hash    varchar(222)              null,
-    level   int default 0             null,
+    name             varchar(222) charset utf8           not null,
+    surname          varchar(222) charset utf8           null,
+    phone            varchar(100)                        not null,
+    email            varchar(100)                        not null,
+    pswd             varchar(100)                        not null,
+    balance          float                               null,
+    ip               varchar(100)                        null,
+    status           int                                 null,
+    hash             varchar(222)                        null,
+    level            int       default 0                 null,
+    ref_id           int                                 null,
+    ref_percent      int       default 3                 null,
+    ref_link_counter int       default 0                 null,
+    date_register    timestamp default CURRENT_TIMESTAMP not null,
+    ref_limit        int       default 3                 not null,
     constraint email
         unique (email)
 )
