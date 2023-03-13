@@ -27,7 +27,7 @@ checklogin !== undefined ?
 const setBalance = (balance) => {
     let balanceElem = document.getElementsByClassName('balancevalue');
     for (const balanceElement of balanceElem) {
-        balanceElement.innerHTML = "$" + balance;
+        balanceElement.innerHTML = "$" + balance.toFixed(2);
     }
 }
 

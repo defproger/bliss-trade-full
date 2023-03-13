@@ -26,9 +26,8 @@ foreach ($deposits as $deposit) {
                      `amount_profit`= `amount_profit`+{$profit} ,
                      `status` = 'closed'
                      where `id` = {$deposit['id']}");
-
-        db_getConnection()->query("update `users` set `balance`= balance+" . $deposit['amount'] + $deposit['amount_profit'] + $profit . " where `id` = {$deposit['user_id']}");
-        $reffer = db_getConnection()->query("select * from `users` where `id` = (select `ref_id` from `users` where `id` = {$deposit['user_id']})")->fetch();
+        db_getConnection()->query("update `users` set `balance`= `balance`+(" . ($deposit['amount'] + $deposit['amount_profit'] + $profit) . ") where `id`={$deposit['id_user']}");
+        $reffer = db_getConnection()->query("select * from `users` where `id` = (select `ref_id` from `users` where `id` = {$deposit['id_user']})")->fetch();
         if (isset($reffer['id']))
             db_getConnection()->query("update `users` set `balance`= balance+" . (($deposit['amount'] + $deposit['amount_profit'] + $profit) / 100) * $reffer['ref_percent'] . " where `id` = {$reffer['id']}");
 
