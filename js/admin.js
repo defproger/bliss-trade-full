@@ -37,3 +37,9 @@ document.querySelector('#exitfromlkbtn').addEventListener('click', (e) => {
     Cookies.remove('id');
     window.location.href = "../login.html";
 })
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    document.querySelector('.balancepagelink').addEventListener('click', () => {
+        window.location.href = "./balance.html";
+    })
+}

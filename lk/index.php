@@ -71,7 +71,7 @@ if ($user['balance'] == 0) {
                       fill="black"/>
             </svg>
         </a>
-        <div class="balance">
+        <div class="balance balancepagelink">
             <span>Баланс: </span>
             <span class="balancevalue"></span>
         </div>

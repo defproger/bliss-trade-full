@@ -11,3 +11,5 @@ $PAYAPI = [
     "publickey" => '',
     "secretkey" => ''
 ];
+
+$domain = 'https://example.com/';

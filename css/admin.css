@@ -1192,6 +1192,34 @@ main#paylist {
         font-weight: 400;
         font-size: 18px;
     }
+
+    .balancepagelink {
+        display: block !important;
+    }
+
+    .balancepagelink span {
+        display: none;
+    }
+
+    .balancepagelink .balancevalue {
+        display: block;
+        border: 1px solid #000000;
+        border-radius: 20px;
+        padding: 6px 17px;
+        cursor: pointer;
+    }
+
+    .mobileBalancePage .balancepagelink {
+        display: none !important;
+    }
+
+    .mobileBalancePage .operationsButtons {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 140px;
+    }
+
 }
 
 
