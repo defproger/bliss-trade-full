@@ -534,11 +534,28 @@
     }
     const tradeslider = new Swiper("#dipositslider", settings);
 
+    // const datesetter = (plus) => {
+    //     const today = new Date();
+    //     const targetDate = new Date(today.getTime() + plus * 24 * 60 * 60 * 1000);
+    //     return targetDate.toLocaleString('ru-RU', {timeZone: 'Europe/Kiev', timeZoneName: 'short'})
+    // }
+    const isWorkingDay = (date) => {
+        const dayOfWeek = date.getDay();
+        return dayOfWeek !== 0 && dayOfWeek !== 6;
+    }
+
     const datesetter = (plus) => {
         const today = new Date();
-        const targetDate = new Date(today.getTime() + plus * 24 * 60 * 60 * 1000);
-        // return today.toLocaleString('ru-RU', {timeZone: 'Europe/Moscow', timeZoneName: 'short'})
-        return targetDate.toLocaleString('ru-RU', {timeZone: 'Europe/Kiev', timeZoneName: 'short'})
+        let targetDate = new Date(today.getTime());
+
+        while (plus > 0) {
+            targetDate.setDate(targetDate.getDate() + 1);
+            if (isWorkingDay(targetDate)) {
+                plus--;
+            }
+        }
+
+        return targetDate.toLocaleString('ru-RU', {timeZone: 'Europe/Kiev', timeZoneName: 'short'});
     }
 
 
