@@ -1,3 +1,9 @@
+<?php
+require_once '../app/db.php';
+$user = db_getById('users', $_COOKIE['id']);
+$referals = db_getConnection()->query("SELECT * FROM `users` WHERE `ref_id` = '{$_COOKIE['id']}'")->fetchAll();
+$refsallary = 0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +12,7 @@
     <title>Bliss Trade</title>
     <link rel="stylesheet" href="../css/swiper-bundle.min.css">
     <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/fortunepopup.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/mobile.css">
@@ -13,7 +20,7 @@
 <body>
 <div id="admin">
     <header>
-        <a href="../index.html" id="logo">
+        <a href="../index.php" id="logo">
             <svg class="pclogo" width="100" height="100" viewBox="0 0 100 100" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M39.2866 35.7142L13.5723 19.9999L16.4294 41.4285L17.1437 56.4285L17.858 57.8571L25.0008 72.8571L40.0008 89.2856L47.858 92.1428H54.2866L61.4294 89.2856L75.7151 74.2856L84.2866 57.1428L85.0008 42.1428L87.858 19.2856L62.1437 35.7142H39.2866Z"
@@ -143,7 +150,7 @@
                 </svg>
                 <span>Мой профиль</span>
             </a>
-            <a href="./referals.html" class="link active">
+            <a href="./referals.php" class="link active">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19.599 4.95C20.199 5.8375 20.549 6.9 20.549 8.05C20.5365 11.05 18.174 13.4875 15.199 13.5875C15.074 13.575 14.924 13.575 14.7865 13.5875C12.024 13.5 9.78653 11.3875 9.48653 8.6875C9.12403 5.475 11.7615 2.5 14.9865 2.5"
                           stroke="#FCD535" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -186,7 +193,7 @@
                           fill="black"/>
                 </svg>
                 <p>Переходы по ссылке </p>
-                <h1>30</h1>
+                <h1><?= $user['ref_link_counter'] ?></h1>
             </div>
             <div class="threeblock">
                 <svg width="136" height="116" viewBox="0 0 136 116" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -196,7 +203,7 @@
                 </svg>
 
                 <p>Зарегистрированы </p>
-                <h1>2</h1>
+                <h1><?= count($referals) ?></h1>
             </div>
             <div class="threeblock">
                 <svg width="136" height="115" viewBox="0 0 136 115" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -206,60 +213,67 @@
                 </svg>
 
                 <p>Реферальный доход </p>
-                <h1>$30</h1>
+                <h1>$<?= $refsallary ?></h1>
             </div>
         </div>
-        <p class="dsrc_texts">Привлекайте больше партнеров за каждого привлеченного партнера получаете 5% от суммы его
+        <p class="dsrc_texts">Привлекайте больше партнеров за каждого привлеченного партнера
+            получаете <?= $user['ref_percent'] ?>% от суммы его
             пополнения!</p>
         <div class="reflinkblock">
             <h3>Ваш личный реферальный URL-адрес</h3>
             <div class="input">
-                <span>htps://blisstrade.com/?ref=25310149</span>
-                <button class="helpbutton" onclick="copyToClipboard('htps://blisstrade.com/?ref=25310149')">Copy
+                <span><?= $domain . "ref=" . $_COOKIE['id'] ?></span>
+                <button class="helpbutton"
+                        onclick="copyToClipboard('<?= $domain . "ref=" . $_COOKIE['id'] ?>')">Copy
                 </button>
             </div>
-            <p>Действует ограничение для регистраций (3)</p>
+            <p>Действует ограничение для регистраций (<?= $user['ref_limit'] ?>)</p>
         </div>
-        <div id="tabs">
-            <div class="tabcontent">
-                <div class="tabContent">
-                    <div class="column">
-                        <p class="columnheader">
-                            Имя
-                        </p>
-                        <span>Валера</span>
-                        <span>Андрей</span>
+        <?php if (count($referals) !== 0): ?>
+            <div id="tabs">
+                <div class="tabcontent">
+                    <div class="tabContent">
+                        <div class="column">
+                            <p class="columnheader">
+                                Имя
+                            </p>
+                            <?php foreach ($referals as $referal): ?>
+                                <span><?= $referal['name'] ?></span>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="column">
+                            <p class="columnheader">
+                                Логин
+                            </p>
+                            <?php foreach ($referals as $referal): ?>
+                                <span><?= $referal['id'] ?></span>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="column">
+                            <p class="columnheader">
+                                Дата и Время
+                            </p>
+                            <?php foreach ($referals as $referal): ?>
+                                <span><?= $referal['date_register'] ?></span>
+                            <?php endforeach; ?>
+                        </div>
+                        <!--                        <div class="column">-->
+                        <!--                            <p class="columnheader">-->
+                        <!--                                Время-->
+                        <!--                            </p>-->
+                        <!--                            <span> 01:05 </span>-->
+                        <!--                            <span> 01:05 </span>-->
+                        <!--                        </div>-->
                     </div>
-                    <div class="column">
-                        <p class="columnheader">
-                            Логни
-                        </p>
-                        <span>0123 </span>
-                        <span>0041 </span>
-                    </div>
-                    <div class="column">
-                        <p class="columnheader">
-                            Дата
-                        </p>
-                        <span>23.10.2022 </span>
-                        <span>23.10.2022 </span>
-                    </div>
-                    <div class="column">
-                        <p class="columnheader">
-                            Время
-                        </p>
-                        <span> 01:05 </span>
-                        <span> 01:05 </span>
-                    </div>
-
                 </div>
             </div>
-        </div>
+        <?php endif; ?>
     </main>
 </div>
 
 <script src="../js/jquery.js"></script>
 <script type="module" src="../js/admin.js"></script>
+<script src="../js/infopopup.js"></script>
 <script src="../js/adminfunctions.js"></script>
 
 <script src="../js/burger.js"></script>

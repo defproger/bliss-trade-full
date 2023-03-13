@@ -1,3 +1,24 @@
+<?php
+require_once './app/db.php';
+if (isset($_GET['ref']) && is_numeric($_GET['ref'])) {
+    $refuser = db_getById('users', $_GET['ref']);
+    $expires = time() + (365 * 24 * 60 * 60); // 1 year
+    if (isset($refuser['id'])) {
+        if (!isset($_COOKIE['ref_id'])) {
+            setcookie('ref_id', $_GET['ref'], $expires, '/');
+            db_update('users', $_GET['ref'], [
+                'ref_link_counter' => $refuser['ref_link_counter'] + 1
+            ]);
+        } else if ($_COOKIE['ref_id'] !== $_GET['ref'] &&
+            $_COOKIE['ref_id_checker'] !== $_GET['ref'])
+            db_update('users', $_GET['ref'], [
+                'ref_link_counter' => $refuser['ref_link_counter'] + 1
+            ]);
+
+        setcookie('ref_id_checker', $_GET['ref'], $expires, '/');
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +32,7 @@
 </head>
 <body>
 <header class="headertext container">
-    <a href="./index.html" id="logo">
+    <a href="./index.php" id="logo">
         <svg width="366" height="52" viewBox="0 0 366 52" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.2012 11.6692L0.201172 0.669189L2.20117 15.6692L2.70117 26.1692L3.20117 27.1692L8.20117 37.6692L18.7012 49.1692L24.2012 51.1692H28.7012L33.7012 49.1692L43.7012 38.6692L49.7012 26.6692L50.2012 16.1692L52.2012 0.169189L34.2012 11.6692H18.2012Z"
                   fill="white"/>
@@ -90,7 +111,7 @@
         </button>
     </div>
     <div class="main_background">
-                <img src="./img/mainbg.png" alt="">
+        <img src="./img/mainbg.png" alt="">
     </div>
     <div class="main_mobilebg">
         <svg width="273" height="267" viewBox="0 0 273 267" fill="none" xmlns="http://www.w3.org/2000/svg">

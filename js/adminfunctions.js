@@ -16,7 +16,7 @@ message('', 'off');
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text)
         .then(() => {
-            console.log('Текст скопирован в буфер обмена');
+            infopopup('Реферальная ссылка скопирована в буфер обмена')
         })
         .catch((error) => {
             console.error('Не удалось скопировать текст: ', error);

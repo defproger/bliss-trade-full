@@ -24,12 +24,23 @@ if (isset($_POST['method'])) :
                     "msg" => "Такой пользователь уже существует"
                 ]);
             } else {
+                $refid = null;
+                if (isset($_POST['ref_id'])) {
+                    $referal = db_getById('users', $_POST['ref_id']);
+                    if ($referal['ref_limit'] != 0) {
+                        $refid = $referal['id'];
+                        db_update('users', $referal['id'], [
+                            'ref_limit' => $referal['ref_limit'] - 1
+                        ]);
+                    }
+                }
                 db_insert('users', [
                     'name' => $name,
                     'phone' => $phone,
                     'email' => $email,
                     'pswd' => $password,
                     'balance' => 0,
+                    'ref_id' => $refid,
                 ]);
                 echo json_encode([
                     "success" => true,
