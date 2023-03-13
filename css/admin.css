@@ -414,8 +414,15 @@ main#deposit {
 .paymethodblock:hover {
     box-shadow: 0 4px 20px -5px #c70000;
 }
+
 .paymethodblock.active {
     box-shadow: 0 4px 20px 0px #c70000;
+}
+
+.paymethodblock.disactive {
+    opacity: 0.4;
+    box-shadow: none;
+    cursor: not-allowed;
 }
 
 /*withdraw page*/

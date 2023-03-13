@@ -196,12 +196,12 @@
                         <h3 class="maintext">Visa/Master Card</h3>
                         <p>Комиссия 2%</p>
                     </a>
-                    <a class="paymethodblock" data-type="btc">
+                    <a class="paymethodblock disactive" data-type="btc">
                         <img src="../img/paybitcoin.png" alt="">
                         <h3 class="maintext">BitCoin (BTC)</h3>
                         <p>Комиссия 0%</p>
                     </a>
-                    <a class="paymethodblock" data-type="trc">
+                    <a class="paymethodblock disactive" data-type="trc">
                         <img src="../img/paytether.png" alt="">
                         <h3 class="maintext">Tether (TRC-20)</h3>
                         <p>Комиссия 0%</p>
@@ -228,7 +228,8 @@
                     b.classList.remove('active');
                 }
             });
-            block.classList.add('active');
+            if (!block.classList.contains('disactive'))
+                block.classList.add('active');
         });
     });
 </script>
