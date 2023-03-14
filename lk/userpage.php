@@ -51,7 +51,7 @@ require_once "./components/user.php";
                 </div>
                 <div>
                     <p>Эл. адрес</p>
-                    <input type="email" placeholder="Эл. адрес" name="email" value="<?= $user['email'] ?>">
+                    <input type="email" name="mail" placeholder="<?= $user['email'] ?>" readonly>
                     <p>Телефон</p>
                     <input type="phone" placeholder="Телефон" name="phone" value="<?= $user['phone'] ?>">
                     <p>Пароль</p>

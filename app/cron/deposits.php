@@ -18,8 +18,10 @@ foreach ($deposits as $deposit) {
                 'subtype' => 'referral'
             ]);
         }
-
-        $statuschanger = ", `status`='open'";
+        db_getConnection()
+            ->query("update `deposit` set
+                     `status` = 'open'
+                     where `id` = {$deposit['id']}");
     }
     if ($today->getTimestamp() > strtotime($deposit['date_next']) && strtotime($deposit['date_next']) < strtotime($deposit['date_closed'])) {
         db_getConnection()
@@ -32,7 +34,6 @@ foreach ($deposits as $deposit) {
                             THEN DATE_ADD(`date_next`, INTERVAL 3 DAY)
                             ELSE DATE_ADD(`date_next`, INTERVAL 1 DAY) 
                          END
-                    {$statuschanger}
                      where `id` = {$deposit['id']}");
         if ($deposit['type'] == 'daily') {
             db_getConnection()->query("update `users` set `balance`= `balance`+({$profit}) where `id`={$deposit['id_user']}");

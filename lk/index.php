@@ -1,6 +1,7 @@
 <?php
 require_once "./components/user.php";
-if ($user['balance'] == 0) {
+$dep = db_getById('deposit', $user['id'], 'id_user');
+if (!isset($dep['id'])) {
     header('Location: deposit.php');
     exit();
 }
