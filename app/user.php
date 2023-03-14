@@ -160,7 +160,7 @@ if (isset($_POST['method'])) :
             $update = [];
             if ($user['hash'] === $_POST['hash']) {
                 foreach ($_POST['data'] as $column => $data) {
-                    if (array_key_exists($column, $user) && $user[$column] !== $data)
+                    if (array_key_exists($column, $user) && $user[$column] !== $data && $column !== "email" && $column !== "id")
                         $update[$column] = $data;
                 }
                 if (isset($_POST['data']['password']) &&
