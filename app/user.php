@@ -1,5 +1,6 @@
 <?php
 require "db.php";
+ini_set('display_errors', 0);
 header('Content-Type: application/json');
 //print_r($_POST);
 
@@ -81,14 +82,18 @@ if (isset($_POST['method'])) :
             break;
         case 'auth':
             $user = db_getById('users', $_POST['id']);
-            if ($user['hash'] === $_POST['hash'])
+            if ($user['hash'] === $_POST['hash']) {
                 echo json_encode([
                     "success" => true,
                     "user" => [
-                        "balance" => $user['balance']
+                        "balance" => $user['balance'],
+                        "name" => $user['name']
                     ]
                 ]);
-            else
+                db_update('users', $user['id'], [
+                    'last_visit' => date("Y-m-d H:i:s")
+                ]);
+            } else
                 echo json_encode([
                     "success" => false
                 ]);
@@ -121,10 +126,15 @@ if (isset($_POST['method'])) :
                             "amount_profit" => 0,
                             "date_next" => ($next->format('Y-m-d H:i:s')),
                             "date_closed" => ($closed),
-                            "status" => 'open',
+                            "status" => 'new',
                         ]);
                         db_update('users', $user['id'], [
                             'balance' => $user['balance'] - $_POST['amount']
+                        ]);
+                        db_insert('transactions', [
+                            'user_id' => $user['id'],
+                            'amount' => $_POST['amount'],
+                            'type' => 'deposit'
                         ]);
                         echo json_encode([
                             "success" => true
@@ -144,6 +154,41 @@ if (isset($_POST['method'])) :
                     "success" => false,
                     'msg' => "Вы не авторизованны в системе"
                 ]);
+            break;
+        case 'edit':
+            $user = db_getById('users', $_POST['id']);
+            $update = [];
+            if ($user['hash'] === $_POST['hash']) {
+                foreach ($_POST['data'] as $column => $data) {
+                    if (array_key_exists($column, $user) && $user[$column] !== $data)
+                        $update[$column] = $data;
+                }
+                if (isset($_POST['data']['password']) &&
+                    $_POST['data']['password'] != '')
+                    if (isset($_POST['data']['passwordrepeat']) &&
+                        $_POST['data']['passwordrepeat'] === $_POST['data']['password'])
+                        $update['pswd'] = cryptpass($_POST['data']['password']);
+                    else {
+                        echo json_encode([
+                            "success" => false,
+                            'msg' => "Пароли не совпадают"
+                        ]);
+                        exit();
+                    }
+
+                if (count($update) > 0) {
+                    db_update('users', $user['id'], $update);
+
+                    echo json_encode([
+                        "success" => true,
+                    ]);
+                } else
+                    echo json_encode([
+                        "success" => true,
+                        'msg' => 'Вы ничего не поменяли',
+                    ]);
+            }
+
             break;
     endswitch;
 

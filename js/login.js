@@ -15,7 +15,6 @@ const loginfunction = () => {
                 data,
             },
             success: function (response) {
-                console.log(response)
                 if (response.success) {
                     Cookies.set('hash', response.hash, {expires: 1})
                     Cookies.set('id', response.id, {expires: 1})

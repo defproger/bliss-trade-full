@@ -36,6 +36,12 @@ foreach ($payments as $payment) {
             'status' => 'done'
         ]);
         db_getConnection()->query("update `users` set `balance`= balance+{$payment['amount']} where `id` = {$payment['user_id']}");
+        db_insert('transactions', [
+            'user_id' => $payment['user_id'],
+            'amount' => $payment['amount'],
+            'type' => 'top_up',
+            'subtype' => 'bank_card'
+        ]);
     } else if ($result->status != 'pending') {
         db_update('payments', $payment['id'], [
             'status' => 'canceled'

@@ -274,6 +274,10 @@ main#deposit {
     margin-top: 30px;
 }
 
+.payblock-body p {
+    text-align: center;
+}
+
 .payblock-body h1 {
     margin: 10px 0 30px;
 }

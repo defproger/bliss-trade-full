@@ -68,10 +68,10 @@ if (isset($_GET['ref']) && is_numeric($_GET['ref'])) {
 
     </a>
     <div class="header-buttons" id="navmenu">
-        <div class="language_buttons">
-            <a class="active">🇺🇦</a>
-            <a>🇷🇺</a>
-        </div>
+<!--        <div class="language_buttons">-->
+<!--            <a class="active">🇺🇦</a>-->
+<!--            <a>🇷🇺</a>-->
+<!--        </div>-->
         <nav>
             <a href="./login.html" class="link">Вход</a>
         </nav>
@@ -306,7 +306,7 @@ if (isset($_GET['ref']) && is_numeric($_GET['ref'])) {
                             <h1 class="maintext">Torre</h1>
                             <p class="secondtext">Top-Trader</p>
                         </div>
-                        <img src="./img/traders/torre.png" alt="">
+                        <img src="./img/traders/Bill_Reef.05.png" alt="">
                     </div>
                     <div class="trade_block_flex">
                         <h1 class="maintext">APY:</h1>
@@ -324,7 +324,7 @@ if (isset($_GET['ref']) && is_numeric($_GET['ref'])) {
                             <h1 class="maintext">Oliver</h1>
                             <p class="secondtext">Top-Trader</p>
                         </div>
-                        <img src="./img/traders/torre.png" alt="">
+                        <img src="./img/traders/TH_Oliver.png" alt="">
                     </div>
                     <div class="trade_block_flex">
                         <h1 class="maintext">APY:</h1>
@@ -342,7 +342,7 @@ if (isset($_GET['ref']) && is_numeric($_GET['ref'])) {
                             <h1 class="maintext">Oscar</h1>
                             <p class="secondtext">Top-Trader</p>
                         </div>
-                        <img src="./img/traders/torre.png" alt="">
+                        <img src="./img/traders/LinKOln.png" alt="">
                     </div>
                     <div class="trade_block_flex">
                         <h1 class="maintext">APY:</h1>
@@ -360,7 +360,7 @@ if (isset($_GET['ref']) && is_numeric($_GET['ref'])) {
                             <h1 class="maintext">Charley</h1>
                             <p class="secondtext">Top-Trader</p>
                         </div>
-                        <img src="./img/traders/torre.png" alt="">
+                        <img src="./img/traders/Mr.KoT_27.png" alt="">
                     </div>
                     <div class="trade_block_flex">
                         <h1 class="maintext">APY:</h1>
@@ -378,7 +378,7 @@ if (isset($_GET['ref']) && is_numeric($_GET['ref'])) {
                             <h1 class="maintext">Sophia</h1>
                             <p class="secondtext">Top-Trader</p>
                         </div>
-                        <img src="./img/traders/torre.png" alt="">
+                        <img src="./img/traders/LR_S.22.png" alt="">
                     </div>
                     <div class="trade_block_flex">
                         <h1 class="maintext">APY:</h1>

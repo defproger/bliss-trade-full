@@ -14,22 +14,24 @@ checklogin !== undefined ?
         success: function (response) {
             if (response.success) {
                 user = response.user;
-                setBalance(user.balance)
-
+                Cookies.set('user_balance', user.balance, {expires: 1})
+                setUserData();
             } else {
                 Cookies.remove('hash');
+                Cookies.remove('user_balance');
                 Cookies.remove('id');
                 window.location.href = "../login.html";
             }
         }
     }) : window.location.href = "../login.html";
 
-const setBalance = (balance) => {
+const setUserData = () => {
     let balanceElem = document.getElementsByClassName('balancevalue');
     for (const balanceElement of balanceElem) {
-        balanceElement.innerHTML = "$" + balance.toFixed(2);
+        balanceElement.innerHTML = "$" + Cookies.get('user_balance');
     }
 }
+setUserData();
 
 document.querySelector('#exitfromlkbtn').addEventListener('click', (e) => {
     e.preventDefault();
@@ -40,6 +42,6 @@ document.querySelector('#exitfromlkbtn').addEventListener('click', (e) => {
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.querySelector('.balancepagelink').addEventListener('click', () => {
-        window.location.href = "./balance.html";
+        window.location.href = "./balance.php";
     })
 }
