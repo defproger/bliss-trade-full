@@ -103,7 +103,7 @@ if (isset($_POST['method'])) :
             $tariff = db_getById('tariff', $_POST['did']);
             if ($user['hash'] === $_POST['hash'])
                 if ($user['level'] === $tariff['level'])
-                    if ($user['balance'] > $_POST['amount'] && is_numeric($_POST['amount'])) {
+                    if ($user['balance'] >= $_POST['amount'] && is_numeric($_POST['amount'])) {
                         $today = new DateTime('now');
                         $workingDaysToAdd = $tariff['period'];
                         $daysAdded = 0;
