@@ -9,7 +9,7 @@ foreach ($deposits as $deposit) {
     $statuschanger = '';
     if ($deposit['status'] == 'new') {
         $reffer = db_getConnection()->query("select * from `users` where `id` = (select `ref_id` from `users` where `id` = {$deposit['id_user']})")->fetch();
-        if (isset($reffer['id'])){
+        if (isset($reffer['id'])) {
             db_getConnection()->query("update `users` set `balance`= balance+" . (($deposit['amount']) / 100) * $reffer['ref_percent'] . " where `id` = {$reffer['id']}");
             db_insert('transactions', [
                 'user_id' => $reffer['id'],
@@ -53,7 +53,7 @@ foreach ($deposits as $deposit) {
                      where `id` = {$deposit['id']}");
 
 
-        $depositclosepay = $deposit['type'] == 'daily' ? $deposit['amount'] : ($deposit['amount'] + $deposit['amount_profit'] + $profit);
+        $depositclosepay = $deposit['type'] == 'daily' ? $deposit['amount'] + $profit : ($deposit['amount'] + $deposit['amount_profit'] + $profit);
 
         db_getConnection()->query("update `users` set `balance`= `balance`+({$depositclosepay}) where `id`={$deposit['id_user']}");
         db_insert('transactions', [
