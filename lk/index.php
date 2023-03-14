@@ -384,7 +384,7 @@ if (!isset($dep['id'])) {
                                             Начисленная прибыль
                                         </span>
                                         </h3>
-                                        <p class="secondtext"><?= $deposit['amount_profit'] ?> </p>
+                                        <p class="secondtext"><?= $deposit['amount_profit'] ?> $</p>
                                     </div>
                                     <div class="depositblock-texts">
                                         <h3>
